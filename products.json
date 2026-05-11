@@ -1,0 +1,863 @@
+[
+  {
+    "id": "bed-divan-01",
+    "legacyId": 1,
+    "name": "Plain Headboard Divan Bed – Velvet Upholstered Storage Base",
+    "category": "beds",
+    "style": "divan",
+    "productType": "bed-frame",
+    "badge": "Bestseller",
+    "description": "Clean, minimalist divan bed with a plain padded headboard. Available in multiple velvet colours with optional gaslift storage base. Mattress can be added separately.",
+    "basePrice": {
+      "90x200": 385,
+      "140x200": 415,
+      "160x200": 430,
+      "180x200": 510
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Silver",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      },
+      {
+        "name": "Cream / Beige",
+        "hex": "#F5F0DC"
+      },
+      {
+        "name": "Blue",
+        "hex": "#2B4D8C"
+      },
+      {
+        "name": "Brown",
+        "hex": "#7B5B3A"
+      },
+      {
+        "name": "Pink",
+        "hex": "#E8A0B0"
+      },
+      {
+        "name": "Green",
+        "hex": "#2D5016"
+      },
+      {
+        "name": "Plum",
+        "hex": "#5C2F5C"
+      }
+    ],
+    "features": [
+      "Orthopaedic Spring mattress included (upgradeable)",
+      "Optional storage drawers: €30 per drawer",
+      "Gas Lift upgrade: +€150",
+      "Assembly: +€30"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "hasDrawers": true,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_3hkkrp3hkkrp3hkk.png?v=1777059258",
+      "https://newlookhome.eu/cdn/shop/files/2fceae09-75e0-49ae-9e1a-2b9322680078.webp?v=1777027752",
+      "https://newlookhome.eu/cdn/shop/files/4468f0c3-1401-4e1a-b011-a4ac7675aa49.webp?v=1777028334"
+    ],
+    "price": 385,
+    "drawerOptions": [
+      "No Drawers",
+      "2 Drawers (+€60)",
+      "4 Drawers (+€120)"
+    ]
+  },
+  {
+    "id": "bed-panel-01",
+    "legacyId": 2,
+    "name": "Panel Bed – Vertical Channel Velvet Headboard with Gas-Lift Storage",
+    "category": "beds",
+    "style": "florida-panel",
+    "productType": "bed-frame",
+    "badge": "Popular",
+    "description": "Structured vertical panel lines on the headboard give this bed a clean, architectural look. Wrapped in premium velvet. Gaslift storage base available.",
+    "basePrice": {
+      "140x200": 480,
+      "160x200": 495,
+      "180x200": 555
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Silver",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      },
+      {
+        "name": "Cream / Beige",
+        "hex": "#F5F0DC"
+      },
+      {
+        "name": "Blue",
+        "hex": "#2B4D8C"
+      },
+      {
+        "name": "Brown",
+        "hex": "#7B5B3A"
+      },
+      {
+        "name": "Pink",
+        "hex": "#E8A0B0"
+      },
+      {
+        "name": "Green",
+        "hex": "#2D5016"
+      }
+    ],
+    "features": [
+      "Orthopaedic Spring mattress included (upgradeable)",
+      "Storage bed – opens manually (included)",
+      "Gas Lift upgrade: +€150",
+      "Assembly: +€50 (with Gas Lift: +€100)"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "hasDrawers": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/clean_Gemini_Generated_Image_hne48ghne48ghne4.png?v=1777029018",
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_c4y85nc4y85nc4y8_1.png?v=1777059109"
+    ],
+    "price": 480
+  },
+  {
+    "id": "bed-sleigh-01",
+    "legacyId": 3,
+    "name": "Sleigh Bed – Deep-Button Crushed Velvet with Optional Gas-Lift Storage",
+    "category": "beds",
+    "style": "sleigh-hilton",
+    "productType": "bed-frame",
+    "badge": "Bestseller",
+    "description": "Classic curved sleigh design with deep-button tufting and luxurious crushed velvet upholstery. Optional gaslift storage base. Assembly +€40.",
+    "basePrice": {
+      "140x200": 505,
+      "160x200": 545,
+      "180x200": 585
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Silver",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      },
+      {
+        "name": "Cream / Beige",
+        "hex": "#F5F0DC"
+      }
+    ],
+    "features": [
+      "Orthopaedic Spring mattress included (upgradeable)",
+      "Storage bed – opens manually (included)",
+      "Gas Lift upgrade: +€150",
+      "Assembly: +€50 (with Gas Lift: +€100)"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "hasDrawers": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_kwvzghkwvzghkwvz.png?v=1777054769"
+    ],
+    "price": 505
+  },
+  {
+    "id": "bed-hilton-01",
+    "legacyId": 14,
+    "name": "Hilton Bed – Chesterfield Button-Tufted Velvet with Gas-Lift Storage",
+    "category": "beds",
+    "style": "sleigh-hilton",
+    "productType": "bed-frame",
+    "badge": "Popular",
+    "description": "The Hilton Bed features a grand Chesterfield-style button-tufted headboard and matching footboard. Available in Silver, Cream/Beige, Black and Grey with optional gaslift storage.",
+    "basePrice": {
+      "140x200": 505,
+      "160x200": 545,
+      "180x200": 585
+    },
+    "colors": [
+      {
+        "name": "Silver",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "Cream / Beige",
+        "hex": "#F5F0DC"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      },
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      }
+    ],
+    "features": [
+      "Orthopaedic Spring mattress included (upgradeable)",
+      "Storage bed – opens manually (included)",
+      "Gas Lift upgrade: +€150",
+      "Assembly: +€50 (with Gas Lift: +€100)"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "hasDrawers": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_kwvzghkwvzghkwvz.png?v=1777054769"
+    ],
+    "price": 505
+  },
+  {
+    "id": "bed-ambassador-01",
+    "legacyId": 15,
+    "name": "Ambassador Bed – Luxury Tall Chesterfield Headboard with Velvet Finish",
+    "category": "beds",
+    "style": "butterfly",
+    "productType": "bed-frame",
+    "badge": "Premium",
+    "description": "The Ambassador features an extra-tall, deeply tufted Chesterfield headboard with dramatic presence. Premium velvet finish. Currently available in 160x200 Black.",
+    "basePrice": {
+      "140x200": 550,
+      "160x200": 580,
+      "180x200": 630
+    },
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      },
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Silver",
+        "hex": "#C0C0C0"
+      }
+    ],
+    "features": [
+      "Orthopaedic Spring mattress included (upgradeable)",
+      "Storage bed – opens manually (included)",
+      "Gas Lift upgrade: +€150",
+      "Assembly: +€50 (with Gas Lift: +€100)"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "hasDrawers": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_atqw90atqw90atqw.png?v=1777054976"
+    ],
+    "price": 550
+  },
+  {
+    "id": "mattress-spring-01",
+    "legacyId": 5,
+    "name": "Orthopaedic Pocket Spring Mattress – Quilted Tufted Design",
+    "category": "mattresses",
+    "type": "pocket-spring",
+    "badge": "Bestseller",
+    "description": "Premium orthopaedic spring mattress with quilted tufted surface. Rolled and vacuum-packed for easy delivery. Expands fully within 24 hours.",
+    "basePrice": {
+      "90x200": 210,
+      "140x200": 230,
+      "160x200": 250,
+      "180x200": 280
+    },
+    "colors": [
+      {
+        "name": "White / Cream",
+        "hex": "#FFFDF5"
+      }
+    ],
+    "features": [
+      "Individually encased pocket springs",
+      "Tufted quilted surface",
+      "Rolled & vacuum-packed",
+      "Available in all 4 standard sizes"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_1mj41i1mj41i1mj4.png?v=1777131353"
+    ],
+    "price": 210
+  },
+  {
+    "id": "mattress-turkish-01",
+    "legacyId": 6,
+    "name": "Turkish Pocket Spring Mattress – Diamond Quilted",
+    "category": "mattresses",
+    "type": "pocket-spring",
+    "badge": null,
+    "description": "Authentic Turkish craftsmanship with diamond quilted pattern and pocket spring support. Minimises motion transfer for undisturbed sleep.",
+    "basePrice": {
+      "90x200": 220,
+      "140x200": 250,
+      "160x200": 270,
+      "180x200": 310
+    },
+    "colors": [
+      {
+        "name": "White / Cream",
+        "hex": "#FFFDF5"
+      }
+    ],
+    "features": [
+      "Diamond quilted Turkish design",
+      "Pocket spring support",
+      "All standard sizes"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_7mj1hl7mj1hl7mj1.png?v=1777131313"
+    ],
+    "price": 220
+  },
+  {
+    "id": "mattress-foam-01",
+    "legacyId": 7,
+    "name": "Turkish Foam Mattress – Quilted Comfort Layer",
+    "category": "mattresses",
+    "type": "memory-foam",
+    "badge": "Popular",
+    "description": "Quality Turkish foam mattress with quilted top surface and durable foam core. Breathable and long-lasting. Delivered rolled in all sizes.",
+    "basePrice": {
+      "90x200": 230,
+      "140x200": 270,
+      "160x200": 290,
+      "180x200": 330
+    },
+    "colors": [
+      {
+        "name": "White / Cream",
+        "hex": "#FFFDF5"
+      }
+    ],
+    "features": [
+      "Quilted comfort layer",
+      "Durable foam core",
+      "Breathable surface",
+      "Delivered rolled"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/BCO.d5eb73d8-92e2-4d63-b969-05a4902b09ab.webp?v=1777109050"
+    ],
+    "price": 230
+  },
+  {
+    "id": "sofa-sb6001g-01",
+    "legacyId": 8,
+    "name": "SB6001-G | Turkish 3-Seater Sofa Bed with Under-Seat Storage",
+    "category": "sofas",
+    "type": "3-seater",
+    "badge": null,
+    "description": "Stylish Turkish sofa cum bed with decorative wooden arm accents and hidden under-seat storage. Converts to a guest bed. Size: 55x190 / 110x190 cm.",
+    "price": 510,
+    "basePrice": {
+      "Standard (55x190/110x190)": 510
+    },
+    "sizeValues": {
+      "Standard (55x190/110x190)": 480
+    },
+    "sizes": [
+      "Standard (55x190/110x190)"
+    ],
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      }
+    ],
+    "features": [
+      "Converts to guest bed",
+      "Hidden under-seat storage",
+      "Assembly: +€60"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Image_v6xkeuv6xkeuv6xk.png?v=1777111598"
+    ]
+  },
+  {
+    "id": "sofa-lshape-01",
+    "legacyId": 9,
+    "name": "7-Seater L-Shape Corner Sofa – Large Sectional for Living Room",
+    "category": "sofas",
+    "type": "l-shape",
+    "badge": "Popular",
+    "description": "Commanding 7-seater L-shape sectional sofa. Perfect for large living rooms. All countries €700. Customer self-assembly required.",
+    "price": 730,
+    "basePrice": {
+      "Left Corner": 730,
+      "Right Corner": 730
+    },
+    "sizeValues": {
+      "Left Corner": 700,
+      "Right Corner": 700
+    },
+    "sizes": [
+      "Left Corner",
+      "Right Corner"
+    ],
+    "colors": [
+      {
+        "name": "Charcoal",
+        "hex": "#36454F"
+      },
+      {
+        "name": "Cream",
+        "hex": "#FFFDD0"
+      },
+      {
+        "name": "Taupe",
+        "hex": "#8B7D6B"
+      }
+    ],
+    "features": [
+      "Adjustable headrests & armrests",
+      "Customer self-assembly (no charge)"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_5e2dl75e2dl75e2d.png?v=1777062333"
+    ]
+  },
+  {
+    "id": "dining-1840-01",
+    "legacyId": 10,
+    "name": "Model 1840 – Marble White & Gold 6-Seater Dining Set",
+    "category": "dining",
+    "style": "marble",
+    "badge": null,
+    "description": "Elegant marble-effect glass top dining table with gold accents and matching chairs. Seats 6. No assembly charge.",
+    "price": 380,
+    "basePrice": {
+      "6 Chair Set": 380
+    },
+    "sizeValues": {
+      "6 Chair Set": 350
+    },
+    "sizes": [
+      "6 Chair Set"
+    ],
+    "colors": [
+      {
+        "name": "Marble Gold & White",
+        "hex": "#D4AF6A"
+      }
+    ],
+    "features": [
+      "6-seater dining set",
+      "Premium glass top & steel legs",
+      "Assembly: +€50"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/clean_4ead063f-bedd-41fb-bd63-f2a5187fac58.png?v=1776963265"
+    ]
+  },
+  {
+    "id": "dining-1639-01",
+    "legacyId": 17,
+    "name": "Model 1639 – Marble Black & White 6-Seater Dining Set",
+    "category": "dining",
+    "style": "marble",
+    "badge": null,
+    "description": "Striking marble-effect black and white pattern dining set with chrome legs and matching chairs. Seats 6. No assembly charge.",
+    "price": 380,
+    "basePrice": {
+      "6 Chair Set": 380
+    },
+    "sizeValues": {
+      "6 Chair Set": 350
+    },
+    "sizes": [
+      "6 Chair Set"
+    ],
+    "colors": [
+      {
+        "name": "Black & White Marble",
+        "hex": "#2C2C2C"
+      }
+    ],
+    "features": [
+      "6-seater dining set",
+      "Premium glass top & steel legs",
+      "Assembly: +€50"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/clean_4ead063f-bedd-41fb-bd63-f2a5187fac58.png?v=1776963265"
+    ]
+  },
+  {
+    "id": "dining-155-01",
+    "legacyId": 18,
+    "name": "Dinings-155 | White Strip 6-Seater Dining Set – Black & White",
+    "category": "dining",
+    "style": "luxury",
+    "badge": null,
+    "description": "Sleek black dining set with white strip chair detail. Chrome legs and a modern glass table top. Seats 6. No assembly charge.",
+    "price": 480,
+    "basePrice": {
+      "6 Chair Set": 480
+    },
+    "sizeValues": {
+      "6 Chair Set": 450
+    },
+    "sizes": [
+      "6 Chair Set"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      }
+    ],
+    "features": [
+      "6-seater dining set",
+      "Premium glass top & steel legs",
+      "Assembly: +€50"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/clean_f07f8ac2-0e07-4c25-a33c-0b683d548b57.png?v=1776962966"
+    ]
+  },
+  {
+    "id": "dining-1236-01",
+    "legacyId": 19,
+    "name": "Model 1236 – Patterned Glass 6-Seater Dining Set – Black",
+    "category": "dining",
+    "style": "set",
+    "badge": null,
+    "description": "Bold black dining set with decorative patterned glass top and matching black chairs. Chrome legs. Seats 6. No assembly charge.",
+    "price": 380,
+    "basePrice": {
+      "6 Chair Set": 380
+    },
+    "sizeValues": {
+      "6 Chair Set": 350
+    },
+    "sizes": [
+      "6 Chair Set"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      }
+    ],
+    "features": [
+      "6-seater dining set",
+      "Premium glass top & steel legs",
+      "Assembly: +€50"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/clean_4ead063f-bedd-41fb-bd63-f2a5187fac58.png?v=1776963265"
+    ]
+  },
+  {
+    "id": "dining-plain-grey-01",
+    "legacyId": 20,
+    "name": "Plain Grey 6-Seater Dining Set – Extending Glass Table",
+    "category": "dining",
+    "style": "set",
+    "badge": null,
+    "description": "Clean and modern plain grey dining set with extending glass table top and matching grey chairs. Chrome legs. Seats 6. No assembly charge.",
+    "price": 380,
+    "basePrice": {
+      "6 Chair Set": 380
+    },
+    "sizeValues": {
+      "6 Chair Set": 350
+    },
+    "sizes": [
+      "6 Chair Set"
+    ],
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      }
+    ],
+    "features": [
+      "6-seater dining set",
+      "Premium glass top & steel legs",
+      "Assembly: +€50"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/clean_4ead063f-bedd-41fb-bd63-f2a5187fac58.png?v=1776963265"
+    ]
+  },
+  {
+    "id": "dining-1006-01",
+    "legacyId": 21,
+    "name": "Dining 1006 – Rustic Wood Brown 6-Seater Dining Set",
+    "category": "dining",
+    "style": "set",
+    "badge": null,
+    "description": "Rustic solid wood brown dining table with matching chairs. Warm, natural wood grain finish. Seats 6. No assembly charge.",
+    "price": 380,
+    "basePrice": {
+      "6 Chair Set": 380
+    },
+    "sizeValues": {
+      "6 Chair Set": 350
+    },
+    "sizes": [
+      "6 Chair Set"
+    ],
+    "colors": [
+      {
+        "name": "Wood Brown",
+        "hex": "#6B3A2A"
+      }
+    ],
+    "features": [
+      "6-seater dining set",
+      "Premium glass top & steel legs",
+      "Assembly: +€50"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/clean_4ead063f-bedd-41fb-bd63-f2a5187fac58.png?v=1776963265"
+    ]
+  },
+  {
+    "id": "wardrobe-3door-01",
+    "legacyId": 12,
+    "name": "3-Door Wardrobe with Mirror & 2 Drawers – Bedroom Storage",
+    "category": "wardrobes",
+    "type": "3-door",
+    "badge": "In Stock",
+    "description": "Model #722 – 3-door wardrobe with full-length mirror panel and 2 storage drawers. Available in Black, Grey & White. Customer self-assembly.",
+    "price": 480,
+    "basePrice": {
+      "Belgium": 480,
+      "Other Countries (+€30)": 510
+    },
+    "sizeValues": {
+      "Belgium": 450,
+      "Other Countries (+€30)": 480
+    },
+    "sizes": [
+      "Belgium",
+      "Other Countries (+€30)"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "hex": "#F5F5F5"
+      },
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      }
+    ],
+    "features": [
+      "Built-in mirror panel",
+      "Spacious storage",
+      "Customer self-assembly",
+      "Belgium price – +€30 other countries"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/WARDROBETHREEDOORWITHDRAWERSANDMIRROR1.jpg?v=1776939327"
+    ]
+  },
+  {
+    "id": "wardrobe-sliding-01",
+    "legacyId": 13,
+    "name": "Sliding Door Wardrobe with Mirror – Spacious Bedroom Storage",
+    "category": "wardrobes",
+    "type": "sliding",
+    "badge": "In Stock",
+    "description": "Sleek sliding door wardrobe with integrated full-length mirror. Space-saving design. Available in Black, Grey & White. Customer self-assembly.",
+    "price": 580,
+    "basePrice": {
+      "Belgium": 580,
+      "Other Countries (+€30)": 610
+    },
+    "sizeValues": {
+      "Belgium": 550,
+      "Other Countries (+€30)": 580
+    },
+    "sizes": [
+      "Belgium",
+      "Other Countries (+€30)"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "hex": "#F5F5F5"
+      },
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      }
+    ],
+    "features": [
+      "Built-in mirror panel",
+      "Spacious storage",
+      "Customer self-assembly",
+      "Belgium price – +€30 other countries"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/degsin1.png?v=1777060870"
+    ]
+  }
+]

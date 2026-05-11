@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Vantage Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+    <style>
+        /* Checkout page responsive fixes */
+        .checkout-page {
+            padding: 2rem 0 4rem;
+            background: var(--off-white);
+        }
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        @media (min-width: 1024px) {
+            .checkout-grid {
+                grid-template-columns: 1fr 380px;
+            }
+            .order-summary {
+                position: sticky;
+                top: calc(var(--header-height) + 1rem);
+            }
+        }
+        .checkout-form-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+        }
+        .checkout-form-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .form-row {
+            margin-bottom: 1rem;
+        }
+        .form-row.two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .form-group label {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 16px; /* prevent iOS zoom */
+            color: var(--text-dark);
+            background: var(--white);
+            transition: border-color var(--transition-fast);
+            min-height: 46px;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201,169,89,0.15);
+        }
+        .form-group select {
+            -webkit-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 36px;
+        }
+        .form-group textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+        .required { color: var(--error); }
+        .error-message {
+            font-size: 0.8rem;
+            color: var(--error);
+            margin-top: 0.25rem;
+        }
+        /* Order summary panel */
+        .order-summary {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+        }
+        .order-summary h2 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .order-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .order-item {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+        .order-item-image {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .order-item-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+        .order-item-options {
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+            margin-top: 0.2rem;
+        }
+        .order-item-price {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-top: 0.2rem;
+        }
+        .order-totals {
+            border-top: 1px solid var(--light-gray);
+            padding-top: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        .total-row.grand-total {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--light-gray);
+        }
+        .cod-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1rem;
+            background: #fffbf0;
+            border: 1px solid var(--gold-light);
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            color: var(--charcoal);
+        }
+
+        /* ── Mobile overrides ── */
+        @media (max-width: 767px) {
+            .checkout-page {
+                padding: 1.25rem 0 3rem;
+            }
+            .checkout-page > .container > h1 {
+                font-size: 1.4rem;
+                margin-bottom: 1.25rem;
+            }
+            .checkout-form-section {
+                padding: 1rem;
+            }
+            .checkout-form-section h2 {
+                font-size: 1rem;
+            }
+            /* Always single column on mobile */
+            .form-row.two-col {
+                grid-template-columns: 1fr;
+            }
+            /* Summary goes above form on mobile */
+            .order-summary {
+                order: -1;
+                padding: 1rem;
+            }
+            .order-summary h2 {
+                font-size: 1rem;
+            }
+            .order-item-image {
+                width: 54px;
+                height: 54px;
+            }
+            /* Sticky place-order button area */
+            .checkout-form-section .btn-primary[type="submit"] {
+                position: sticky;
+                bottom: 0;
+                z-index: 10;
+                box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
+                min-height: 52px;
+                font-size: 1rem;
+                border-radius: var(--radius-md);
+            }
+            /* Promo row stacks */
+            #promoCodeInput { font-size: 16px; }
+        }
+
+        @media (max-width: 480px) {
+            .cod-badge span { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">VANTAGE</span>
+                <span class="logo-subtext">HOME</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link" style="font-weight:600;">🏠 Home</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-count" id="cartCount" style="display:none;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-page">
+        <div class="container">
+            <h1 style="font-family:var(--font-display);text-align:center;margin-bottom:2rem;color:var(--charcoal);">Complete Your Order</h1>
+
+            <div class="checkout-grid">
+                <!-- Form -->
+                <div class="checkout-form-section">
+                    <form id="checkoutForm" novalidate>
+                        <h2>Contact Information</h2>
+                        <div class="form-row two-col">
+                            <div class="form-group">
+                                <label>First Name <span class="required">*</span></label>
+                                <input type="text" name="firstName" required autocomplete="given-name">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name <span class="required">*</span></label>
+                                <input type="text" name="lastName" required autocomplete="family-name">
+                            </div>
+                        </div>
+                        <div class="form-row two-col">
+                            <div class="form-group">
+                                <label>Email <span style="color:var(--dark-gray);font-size:.8rem;">(optional)</span></label>
+                                <input type="email" name="email" autocomplete="email" placeholder="Optional – for order confirmation">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone <span class="required">*</span></label>
+                                <input type="tel" name="phone" required autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <h2 style="margin-top:2rem;">Delivery Address</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Country <span class="required">*</span></label>
+                                <select name="country" id="country" required>
+                                    <option value="">Select country…</option>
+                                    <option value="BE">🇧🇪 Belgium (Free delivery over €500)</option>
+                                    <option value="NL">🇳🇱 Netherlands (+€30, or +€50 for 7xxx/8xxx)</option>
+                                    <option value="LU">🇱🇺 Luxembourg (+€30)</option>
+                                    <option value="FR">🇫🇷 France – northern regions 02, 08, 54, 57, 59, 60, 62 (+€30)</option>
+                                    <option value="DE">🇩🇪 Germany – postcodes starting 4, 5, 6, 7 (+€30)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Street Address <span class="required">*</span></label>
+                                <input type="text" name="address" required placeholder="House number and street name" autocomplete="street-address">
+                            </div>
+                        </div>
+                        <div class="form-row two-col">
+                            <div class="form-group">
+                                <label>City <span class="required">*</span></label>
+                                <input type="text" name="city" required autocomplete="address-level2">
+                            </div>
+                            <div class="form-group">
+                                <label>Postcode <span class="required">*</span></label>
+                                <input type="text" name="postcode" id="postcode" required autocomplete="postal-code">
+                                <span class="error-message" id="postcodeError" style="display:none;"></span>
+                                <div id="deliveryDayHint" style="display:none;margin-top:.5rem;padding:.75rem 1rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-md);font-size:.9rem;color:#166534;line-height:1.5;">
+                                    <strong>📅 Estimated Delivery Day:</strong> <span id="deliveryDayText"></span>
+                                    <br><small style="opacity:.8;">Note: Delivery may be rescheduled if fewer than 4 orders on your route.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floor info -->
+                        <div style="background:var(--off-white);padding:1rem;border-radius:var(--radius-md);margin:1rem 0;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Floor Number</label>
+                                    <select name="floor">
+                                        <option value="0">Ground / 1st floor (no charge)</option>
+                                        <option value="0">2nd floor (no charge)</option>
+                                        <option value="15">3rd–4th floor (+€15)</option>
+                                        <option value="20">5th–6th floor (+€20)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p style="font-size:.8rem;color:var(--dark-gray);margin-top:.5rem;">⚠ Assembly charges were selected on the product page. We do <strong>not</strong> assemble wardrobes or 7-seater sofas.</p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Order Notes (Optional)</label>
+                                <textarea name="notes" placeholder="Any special instructions for delivery or assembly…"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Promo Code -->
+                        <div style="background:var(--off-white);padding:1.25rem;border-radius:var(--radius-md);margin:1.5rem 0;">
+                            <h3 style="font-size:1rem;font-weight:600;margin-bottom:.75rem;color:var(--charcoal);">🎟 Promo Code</h3>
+                            <div style="display:flex;gap:.75rem;">
+                                <input type="text" id="promoCodeInput" name="promoCode" placeholder="Enter promo code" style="flex:1;padding:.75rem;border:1px solid var(--light-gray);border-radius:var(--radius-sm);font-size:.95rem;">
+                                <button type="button" id="promoApplyBtn" style="padding:.75rem 1.25rem;background:var(--charcoal);color:white;border:none;border-radius:var(--radius-sm);cursor:pointer;font-weight:600;white-space:nowrap;">Apply</button>
+                            </div>
+                            <p id="promoMessage" style="margin-top:.5rem;font-size:.85rem;min-height:1.2em;"></p>
+                            <p style="font-size:.78rem;color:var(--dark-gray);margin-top:.25rem;">Have a team referral code? Enter it here for your discount.</p>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top:1.5rem;">
+                            Place Order – Pay on Delivery
+                        </button>
+
+                        <!-- Contact options -->
+                        <div style="margin-top:1.25rem;padding:1rem;background:var(--off-white);border-radius:var(--radius-md);text-align:center;">
+                            <p style="font-size:.85rem;color:var(--dark-gray);">
+                                💬 Have questions before ordering?<br>
+                                <a href="#" style="color:var(--gold);font-weight:500;">Facebook</a> &nbsp;·&nbsp;
+                                <a href="#" style="color:var(--gold);font-weight:500;">Instagram</a> &nbsp;·&nbsp;
+                                <a href="contact.html" style="color:var(--gold);font-weight:500;">Email Us</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Summary -->
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div class="order-items" id="orderItems"><!-- Loaded via JS --></div>
+                    <div class="order-totals">
+                        <div class="total-row"><span>Subtotal</span><span id="subtotal">€0.00</span></div>
+                        <div class="total-row"><span>Delivery</span><span id="deliveryFee">–</span></div>
+                        <!-- extra charges (floor, promo) injected by JS -->
+                        <div class="total-row grand-total"><span>Total</span><span id="grandTotal">€0.00</span></div>
+                    </div>
+                    <div class="cod-badge">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                        <span><strong>Cash on Delivery</strong> – Pay when your order arrives</span>
+                    </div>
+                    <div style="margin-top:1rem;padding:1rem;background:var(--off-white);border-radius:var(--radius-md);">
+                        <p style="font-size:.8rem;color:var(--dark-gray);line-height:1.6;">
+                            ✓ Confirmed within 24 hours<br>
+                            ✓ Delivery scheduled by postcode route<br>
+                            ✓ Inspect furniture before paying<br>
+                            ✓ Custom-built from our warehouse<br>
+                            ✓ <strong>Belgium:</strong> Free delivery over €500<br>
+                            ✓ <strong>All other countries:</strong> +€30 (NL 7xxx/8xxx: +€50)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vantage Home. All rights reserved.</p>
+                <a href="index.html" style="color:rgba(255,255,255,.6);font-size:.85rem;">← Back to Home</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>

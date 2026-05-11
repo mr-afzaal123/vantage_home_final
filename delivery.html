@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Schedule | Vantage Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+    <style>
+        .delivery-hero {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .delivery-hero h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: .5rem;
+        }
+        .delivery-hero p {
+            color: rgba(255,255,255,.7);
+            font-size: 1.1rem;
+        }
+
+        /* Postcode lookup */
+        .postcode-lookup {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 24px rgba(0,0,0,.1);
+            max-width: 600px;
+            margin: -2rem auto 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        .postcode-lookup h2 {
+            font-family: var(--font-display);
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .lookup-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: .75rem;
+            align-items: end;
+        }
+        .lookup-row select, .lookup-row input {
+            padding: .75rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius-md);
+            font-size: .95rem;
+            width: 100%;
+            font-family: var(--font-body);
+        }
+        .lookup-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-size: .95rem;
+            line-height: 1.6;
+        }
+        .lookup-result.success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+        .lookup-result.error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+        .lookup-result.info { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+
+        /* Schedule grid */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .schedule-day {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            border-top: 4px solid var(--gold);
+            box-shadow: 0 2px 12px rgba(0,0,0,.06);
+        }
+        .schedule-day.sunday {
+            border-top-color: var(--medium-gray);
+            opacity: .7;
+        }
+        .schedule-day-header {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            margin-bottom: 1rem;
+        }
+        .schedule-emoji { font-size: 1.5rem; }
+        .schedule-day h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--charcoal);
+        }
+        .schedule-day ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+        .schedule-day ul li {
+            font-size: .9rem;
+            color: var(--dark-gray);
+            padding-left: 1rem;
+            position: relative;
+        }
+        .schedule-day ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        /* Coverage table */
+        .coverage-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,.06);
+        }
+        .coverage-table th {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-size: .9rem;
+            font-weight: 600;
+        }
+        .coverage-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: .9rem;
+            color: var(--charcoal);
+        }
+        .coverage-table tr:last-child td { border-bottom: none; }
+        .coverage-table tr:hover td { background: var(--off-white); }
+
+        .notice-box {
+            background: #fffbeb;
+            border: 1px solid #f59e0b;
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+            font-size: .9rem;
+            color: var(--charcoal);
+            line-height: 1.7;
+        }
+        @media (max-width: 640px) {
+            .lookup-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="announcement-bar">
+        <p>Free Delivery on Orders Over €500 &nbsp;|&nbsp; Cash on Delivery Available</p>
+    </div>
+
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">VANTAGE</span>
+                <span class="logo-subtext">HOME</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="products.html?category=beds" class="nav-link">Beds</a></li>
+                    <li class="nav-item"><a href="products.html?category=mattresses" class="nav-link">Mattresses</a></li>
+                    <li class="nav-item"><a href="products.html?category=sofas" class="nav-link">Sofas</a></li>
+                    <li class="nav-item"><a href="products.html?category=dining" class="nav-link">Dining</a></li>
+                    <li class="nav-item"><a href="products.html?category=wardrobes" class="nav-link">Wardrobes</a></li>
+                    <li class="nav-item"><a href="delivery.html" class="nav-link" style="color:var(--gold);font-weight:600;">🚚 Delivery</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y6="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-count" id="cartCount" style="display:none;">0</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <span class="logo-text">VANTAGE HOME</span>
+                <button class="mobile-nav-close" id="mobileNavClose">✕</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item"><a href="products.html?category=beds" class="mobile-nav-link">Beds</a></li>
+                <li class="mobile-nav-item"><a href="products.html?category=mattresses" class="mobile-nav-link">Mattresses</a></li>
+                <li class="mobile-nav-item"><a href="products.html?category=sofas" class="mobile-nav-link">Sofas</a></li>
+                <li class="mobile-nav-item"><a href="products.html?category=dining" class="mobile-nav-link">Dining</a></li>
+                <li class="mobile-nav-item"><a href="products.html?category=wardrobes" class="mobile-nav-link">Wardrobes</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <div class="delivery-hero">
+            <div class="container">
+                <h1>Delivery Schedule</h1>
+                <p>We deliver Mon–Sat across Belgium, Netherlands, Luxembourg, France & Germany</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Postcode Lookup -->
+            <div class="postcode-lookup">
+                <h2>🔍 Find Your Delivery Day</h2>
+                <form id="postcodeLookupForm" novalidate>
+                    <div class="lookup-row">
+                        <div>
+                            <label style="font-size:.85rem;font-weight:600;display:block;margin-bottom:.4rem;">Country</label>
+                            <select id="lookupCountry">
+                                <option value="BE">🇧🇪 Belgium</option>
+                                <option value="NL">🇳🇱 Netherlands</option>
+                                <option value="LU">🇱🇺 Luxembourg</option>
+                                <option value="FR">🇫🇷 France</option>
+                                <option value="DE">🇩🇪 Germany</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-size:.85rem;font-weight:600;display:block;margin-bottom:.4rem;">Postcode</label>
+                            <input type="text" id="lookupPostcode" placeholder="e.g. 1000 or 59000" maxlength="10">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Check</button>
+                    </div>
+                </form>
+                <div id="postcodeLookupResult"></div>
+            </div>
+
+            <!-- Important Notice -->
+            <div class="notice-box">
+                🔔 <strong>Important:</strong> If there are fewer than 4 orders on any route, the delivery will be rescheduled. The new day and date will be communicated to you and the customer in advance. Thank you for your understanding.
+            </div>
+
+            <!-- Weekly Schedule -->
+            <h2 style="font-family:var(--font-display);color:var(--charcoal);margin-bottom:1.5rem;">Weekly Delivery Routes</h2>
+            <div class="schedule-grid" id="deliverySchedule">
+                <!-- Loaded via JS -->
+            </div>
+
+            <!-- Coverage Details Table -->
+            <h2 style="font-family:var(--font-display);color:var(--charcoal);margin-bottom:1.5rem;">Coverage Details</h2>
+            <table class="coverage-table" style="margin-bottom:3rem;">
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Coverage</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🇧🇪 Belgium</td>
+                        <td>All postcodes</td>
+                        <td>Full nationwide coverage</td>
+                    </tr>
+                    <tr>
+                        <td>🇳🇱 Netherlands</td>
+                        <td>Most postcodes</td>
+                        <td>84xx–89xx excluded from Tuesday route</td>
+                    </tr>
+                    <tr>
+                        <td>🇱🇺 Luxembourg</td>
+                        <td>All postcodes</td>
+                        <td>Delivered Saturday</td>
+                    </tr>
+                    <tr>
+                        <td>🇫🇷 France</td>
+                        <td>57xxx, 59xxx only</td>
+                        <td>Northern France (Moselle & Nord departments)</td>
+                    </tr>
+                    <tr>
+                        <td>🇩🇪 Germany</td>
+                        <td>4xxxx, 5xxxx, 6xxxx, 7xxxx</td>
+                        <td>Western/Central Germany; 48xx, 49xx, 54xx, 55xx, 56xx excluded</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Extra Charges Info -->
+            <div style="background:var(--white);padding:2rem;border-radius:var(--radius-lg);box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:3rem;">
+                <h2 style="font-family:var(--font-display);color:var(--charcoal);margin-bottom:1.25rem;">Additional Charges</h2>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;">
+                    <div style="padding:1rem;background:var(--off-white);border-radius:var(--radius-md);">
+                        <strong>Floor Surcharges</strong>
+                        <ul style="margin-top:.5rem;font-size:.9rem;color:var(--dark-gray);list-style:none;">
+                            <li>Ground – 2nd floor: Free</li>
+                            <li>3rd – 4th floor: +€15</li>
+                            <li>5th – 6th floor: +€20</li>
+                        </ul>
+                    </div>
+                    <div style="padding:1rem;background:var(--off-white);border-radius:var(--radius-md);">
+                        <strong>Assembly (Optional)</strong>
+                        <ul style="margin-top:.5rem;font-size:.9rem;color:var(--dark-gray);list-style:none;">
+                            <li>Divan bed: +€30</li>
+                            <li>Luxury/Panel/Sleigh: +€40</li>
+                            <li>Gaslift bed: +€50</li>
+                            <li>Dining set: +€50</li>
+                            <li>3-Seater sofa: +€60</li>
+                        </ul>
+                    </div>
+                    <div style="padding:1rem;background:var(--off-white);border-radius:var(--radius-md);">
+                        <strong>Country Surcharges</strong>
+                        <ul style="margin-top:.5rem;font-size:.9rem;color:var(--dark-gray);list-style:none;">
+                            <li>Other countries: +€30</li>
+                            <li>NL 7xxx, 8xxx: +€50</li>
+                            <li>France 3-seater: €510</li>
+                        </ul>
+                    </div>
+                    <div style="padding:1rem;background:var(--off-white);border-radius:var(--radius-md);">
+                        <strong>No Assembly For</strong>
+                        <ul style="margin-top:.5rem;font-size:.9rem;color:var(--dark-gray);list-style:none;">
+                            <li>Wardrobes (customer self-assembly)</li>
+                            <li>7-Seater sofas (customer self-assembly)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vantage Home. All rights reserved.</p>
+                <div class="delivery-countries">
+                    <span>Delivering to:</span>
+                    <img src="https://flagcdn.com/w20/be.png" alt="Belgium">
+                    <img src="https://flagcdn.com/w20/nl.png" alt="Netherlands">
+                    <img src="https://flagcdn.com/w20/lu.png" alt="Luxembourg">
+                    <img src="https://flagcdn.com/w20/fr.png" alt="France">
+                    <img src="https://flagcdn.com/w20/de.png" alt="Germany">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>

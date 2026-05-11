@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Vantage Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Home.css">
+    
+</head>
+<body>
+    <!-- Shared nav injected by home.js -->
+    <div data-include="nav"></div>
+
+    <main style="padding:4rem 0;background:var(--off-white);min-height:70vh;">
+        <div class="container" style="max-width:800px;">
+            <h1 style="font-family:var(--font-display);font-size:2.5rem;color:var(--charcoal);margin-bottom:1rem;text-align:center;">Contact Us</h1>
+            <p style="color:var(--dark-gray);text-align:center;margin-bottom:3rem;">We're here to help! Fill out the form below and we'll get back to you shortly.</p>
+            <div style="background:var(--white);padding:2rem;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);">
+                <form action="https://formspree.io/f/xpqbybjd" method="POST">
+                    <div style="margin-bottom:1.5rem;">
+                        <label style="display:block;margin-bottom:.5rem;font-weight:500;">Name *</label>
+                        <input type="text" name="name" style="width:100%;padding:.75rem;border:1px solid var(--light-gray);border-radius:var(--radius-sm);" required>
+                    </div>
+                    <div style="margin-bottom:1.5rem;">
+                        <label style="display:block;margin-bottom:.5rem;font-weight:500;">Email *</label>
+                        <input type="email" name="email" style="width:100%;padding:.75rem;border:1px solid var(--light-gray);border-radius:var(--radius-sm);" required>
+                    </div>
+                    <div style="margin-bottom:1.5rem;">
+                        <label style="display:block;margin-bottom:.5rem;font-weight:500;">Phone</label>
+                        <input type="tel" name="phone" style="width:100%;padding:.75rem;border:1px solid var(--light-gray);border-radius:var(--radius-sm);">
+                    </div>
+                    <div style="margin-bottom:1.5rem;">
+                        <label style="display:block;margin-bottom:.5rem;font-weight:500;">Message *</label>
+                        <textarea name="message" rows="5" style="width:100%;padding:.75rem;border:1px solid var(--light-gray);border-radius:var(--radius-sm);" required></textarea>
+                    </div>
+                    <input type="hidden" name="_subject" value="New Contact Message – Vantage Home">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Shared footer injected by home.js -->
+    <div data-include="footer"></div>
+
+    <script src="home.js"></script>
+</body>
+</html>
