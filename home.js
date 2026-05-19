@@ -12,13 +12,29 @@ const CONFIG = {
     NL_SPECIAL_SURCHARGE: 50 // NL postcodes 7xxx/8xxx: +€50
 };
 
-// Promo codes — discount in euros, note is shown in order email
+// Promo codes — each code is unique per team member so you can track who sent the customer
+// The label appears in the order email so you know which team member to pay
 const PROMO_CODES = {
-    "TEAM10":  { discount: 10,  label: "Team Referral – €10 off" },
-    "TEAM20":  { discount: 20,  label: "Team Referral – €20 off" },
-    "TEAM50":  { discount: 50,  label: "Team Referral – €50 off" },
-    "VIP30":   { discount: 30,  label: "VIP Customer – €30 off" },
-    "WELCOME": { discount: 15,  label: "Welcome Discount – €15 off" }
+    "VH-ALI01":   { discount: 10, label: "Team Referral – Ali (Code: VH-ALI01)" },
+    "VH-OMAR02":  { discount: 10, label: "Team Referral – Omar (Code: VH-OMAR02)" },
+    "VH-SARA03":  { discount: 10, label: "Team Referral – Sara (Code: VH-SARA03)" },
+    "VH-AHMED04": { discount: 10, label: "Team Referral – Ahmed (Code: VH-AHMED04)" },
+    "VH-FATIMA05":{ discount: 10, label: "Team Referral – Fatima (Code: VH-FATIMA05)" },
+    "VH-YUSUF06": { discount: 10, label: "Team Referral – Yusuf (Code: VH-YUSUF06)" },
+    "VH-LAYLA07": { discount: 10, label: "Team Referral – Layla (Code: VH-LAYLA07)" },
+    "VH-HASSAN08":{ discount: 10, label: "Team Referral – Hassan (Code: VH-HASSAN08)" },
+    "VH-NADIA09": { discount: 10, label: "Team Referral – Nadia (Code: VH-NADIA09)" },
+    "VH-TARIQ10": { discount: 10, label: "Team Referral – Tariq (Code: VH-TARIQ10)" },
+    "VH-RANIA11": { discount: 10, label: "Team Referral – Rania (Code: VH-RANIA11)" },
+    "VH-BILAL12": { discount: 10, label: "Team Referral – Bilal (Code: VH-BILAL12)" },
+    "VH-HANA13":  { discount: 10, label: "Team Referral – Hana (Code: VH-HANA13)" },
+    "VH-KARIM14": { discount: 10, label: "Team Referral – Karim (Code: VH-KARIM14)" },
+    "VH-DINA15":  { discount: 10, label: "Team Referral – Dina (Code: VH-DINA15)" },
+    "VH-MALIK16": { discount: 10, label: "Team Referral – Malik (Code: VH-MALIK16)" },
+    "VH-AMIRA17": { discount: 10, label: "Team Referral – Amira (Code: VH-AMIRA17)" },
+    "VH-FAISAL18":{ discount: 10, label: "Team Referral – Faisal (Code: VH-FAISAL18)" },
+    "VH-LEILA19": { discount: 10, label: "Team Referral – Leila (Code: VH-LEILA19)" },
+    "VH-ADAM20":  { discount: 10, label: "Team Referral – Adam (Code: VH-ADAM20)" },
 };
 
 // Mattress models and their price uplifts vs. "UK model" (included in base price)
