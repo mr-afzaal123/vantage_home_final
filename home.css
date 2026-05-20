@@ -2958,3 +2958,44 @@ a, button, select, input, textarea {
         font-size: 1.2rem;
     }
 }
+
+/* =========================================
+   DETAIL PAGE – JS-INJECTED SELECTS
+   Assembly / Mattress / Drawer groups
+   ========================================= */
+@media (max-width: 767px) {
+    /* Any dynamically-added select inside .product-options */
+    .product-options .option-group select,
+    #assemblyGroup select,
+    #mattressGroup select,
+    #drawerGroup select,
+    #sizeSelect {
+        font-size: 16px !important; /* prevent iOS zoom */
+        min-height: 48px;
+        padding: 0.75rem 2.25rem 0.75rem 0.875rem;
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+    }
+
+    /* Keep assembly/mattress headings legible */
+    #assemblyGroup label,
+    #mattressGroup label,
+    #drawerGroup label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+    }
+
+    /* Small helper text */
+    #assemblyGroup small,
+    #mattressGroup small,
+    #drawerGroup small {
+        font-size: 0.78rem;
+        color: var(--dark-gray);
+        margin-top: 0.25rem;
+        display: block;
+    }
+}
