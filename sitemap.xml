@@ -1,76 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Homepage -->
   <url>
-    <loc>https://www.vantagehome1.com/</loc>
-    <priority>1.0</priority>
+    <loc>https://www.vantagehome1.com/index.html</loc>
+    <lastmod>2025-05-25</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 
+  <!-- Category pages — highest priority after homepage -->
+  <url>
+    <loc>https://www.vantagehome1.com/beds.html</loc>
+    <lastmod>2025-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.vantagehome1.com/sofas.html</loc>
+    <lastmod>2025-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.vantagehome1.com/dining.html</loc>
+    <lastmod>2025-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.vantagehome1.com/mattresses.html</loc>
+    <lastmod>2025-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.vantagehome1.com/wardrobes.html</loc>
+    <lastmod>2025-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- All products listing -->
   <url>
     <loc>https://www.vantagehome1.com/products.html</loc>
-    <priority>0.9</priority>
+    <lastmod>2025-05-25</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
-  <url>
-    <loc>https://www.vantagehome1.com/products.html?category=beds</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.vantagehome1.com/products.html?category=mattresses</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.vantagehome1.com/products.html?category=sofas</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.vantagehome1.com/products.html?category=dining</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://www.vantagehome1.com/products.html?category=wardrobes</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
+  <!-- Delivery — important for local SEO -->
   <url>
     <loc>https://www.vantagehome1.com/delivery.html</loc>
-    <priority>0.7</priority>
+    <lastmod>2025-05-25</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
+  <!-- About -->
   <url>
     <loc>https://www.vantagehome1.com/about.html</loc>
-    <priority>0.6</priority>
+    <lastmod>2025-05-25</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
+  <!-- Contact -->
   <url>
     <loc>https://www.vantagehome1.com/contact.html</loc>
-    <priority>0.6</priority>
+    <lastmod>2025-05-25</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
+  <!-- Legal pages — low priority but must be included -->
   <url>
     <loc>https://www.vantagehome1.com/privacy.html</loc>
-    <priority>0.3</priority>
+    <lastmod>2025-05-25</lastmod>
     <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://www.vantagehome1.com/terms.html</loc>
-    <priority>0.3</priority>
+    <lastmod>2025-05-25</lastmod>
     <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
