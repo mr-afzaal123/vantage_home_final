@@ -6,8 +6,6 @@ Allow: /
 Disallow: /cart.html
 Disallow: /checkout.html
 
-# Block detail page (JS-rendered, Google can't index it properly)
-Disallow: /detail.html
 
 # Allow all crawlers full access to assets
 Allow: /home.css
