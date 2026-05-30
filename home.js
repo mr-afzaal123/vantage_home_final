@@ -6,7 +6,7 @@
 const CONFIG = {
     FORMSPREE_ENDPOINT: "https://formspree.io/f/xpqbybjd",
     PRODUCTS_JSON: "products.json",
-    FREE_DELIVERY_THRESHOLD: 500,
+    FREE_DELIVERY_THRESHOLD: 1000,
     DELIVERY_FEE: 0,         // Belgium: FREE (base)
     COUNTRY_SURCHARGE: 30,   // All non-BE countries: +€30
     NL_SPECIAL_SURCHARGE: 50 // NL postcodes 7xxx/8xxx: +€50
@@ -433,13 +433,8 @@ function initProductsPage() {
 // PRODUCT DETAIL PAGE
 // =========================================
 function initProductDetail() {
-    const rawId = new URLSearchParams(window.location.search).get('id');
-    // Support both string IDs ('bed-ambassador-01') and numeric indices ('4')
-    let product = products.find(p => String(p.id) === String(rawId));
-    if (!product) {
-        const numId = parseInt(rawId);
-        if (!isNaN(numId)) product = products[numId] || products.find(p => p.id == numId);
-    }
+    const id = parseInt(new URLSearchParams(window.location.search).get('id'));
+    const product = products.find(p => p.id == id);
 
     if (!product) {
         document.querySelector('main').innerHTML = '<div class="container" style="padding:4rem;text-align:center;"><h2>Product not found</h2><a href="products.html" class="btn btn-primary">Browse All Products</a></div>';
@@ -447,6 +442,100 @@ function initProductDetail() {
     }
 
     document.title = `${product.name} | Vantage Home`;
+
+    // SEO: dynamic meta description
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', `${product.name} – from €${product.price}. ${product.description} Free delivery in Belgium on orders over €1,000. +€30 for other countries. Cash on Delivery.`);
+
+    // SEO: dynamic canonical
+    const canonicalTag = document.getElementById('canonicalTag');
+    if (canonicalTag) canonicalTag.setAttribute('href', `https://www.vantagehome1.com/detail.html?id=${product.id}`);
+
+    // SEO: dynamic Open Graph + Twitter Card
+    const productUrl = `https://www.vantagehome1.com/detail.html?id=${product.id}`;
+    const productImg = product.images && product.images[0] ? product.images[0] : product.image;
+    const ogTitle = document.getElementById('ogTitle');       if (ogTitle)       ogTitle.setAttribute('content', `${product.name} | Vantage Home`);
+    const ogDesc  = document.getElementById('ogDescription'); if (ogDesc)        ogDesc.setAttribute('content', `From €${product.price}. ${product.description} Cash on Delivery across BE, NL, LU, FR & DE.`);
+    const ogUrl   = document.getElementById('ogUrl');         if (ogUrl)         ogUrl.setAttribute('content', productUrl);
+    const ogImg   = document.getElementById('ogImage');       if (ogImg)         ogImg.setAttribute('content', productImg);
+    const twTitle = document.getElementById('twTitle');       if (twTitle)       twTitle.setAttribute('content', `${product.name} | Vantage Home`);
+    const twDesc  = document.getElementById('twDescription'); if (twDesc)        twDesc.setAttribute('content', `From €${product.price}. ${product.description} Cash on Delivery.`);
+    const twImg   = document.getElementById('twImage');       if (twImg)         twImg.setAttribute('content', productImg);
+
+    // SEO: Product schema (JSON-LD) — fully populated for Google Merchant & rich results
+    const schemaEl = document.getElementById('productSchema');
+    if (schemaEl) {
+        const lowestPrice = product.basePrice ? Math.min(...Object.values(product.basePrice)) : product.price;
+        // Build image array — Google requires at least one image URL
+        const imageArray = (product.images && product.images.length)
+            ? product.images.filter(i => i && !i.startsWith('data:'))
+            : (productImg && !productImg.startsWith('data:') ? [productImg] : []);
+
+        // Also update breadcrumb schema with product name
+        const breadcrumbEl = document.getElementById('breadcrumbSchema');
+        if (breadcrumbEl) {
+            const bc = JSON.parse(breadcrumbEl.textContent);
+            bc.itemListElement[2].name = product.name;
+            bc.itemListElement[2].item = productUrl;
+            breadcrumbEl.textContent = JSON.stringify(bc);
+        }
+
+        schemaEl.textContent = JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": product.name,
+            "description": product.description,
+            "image": imageArray,
+            "url": productUrl,
+            "brand": {
+                "@type": "Brand",
+                "name": "Vantage Home"
+            },
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "price": lowestPrice,
+                "availability": "https://schema.org/InStock",
+                "url": productUrl,
+                "seller": { "@type": "Organization", "name": "Vantage Home" },
+                "shippingDetails": {
+                    "@type": "OfferShippingDetails",
+                    "shippingRate": {
+                        "@type": "MonetaryAmount",
+                        "value": "0",
+                        "currency": "EUR"
+                    },
+                    "shippingDestination": {
+                        "@type": "DefinedRegion",
+                        "addressCountry": "BE"
+                    },
+                    "deliveryTime": {
+                        "@type": "ShippingDeliveryTime",
+                        "handlingTime": {
+                            "@type": "QuantitativeValue",
+                            "minValue": 1,
+                            "maxValue": 3,
+                            "unitCode": "DAY"
+                        },
+                        "transitTime": {
+                            "@type": "QuantitativeValue",
+                            "minValue": 14,
+                            "maxValue": 28,
+                            "unitCode": "DAY"
+                        }
+                    }
+                },
+                "hasMerchantReturnPolicy": {
+                    "@type": "MerchantReturnPolicy",
+                    "applicableCountry": "BE",
+                    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                    "merchantReturnDays": 14,
+                    "returnMethod": "https://schema.org/ReturnByMail",
+                    "returnFees": "https://schema.org/FreeReturn"
+                }
+            }
+        });
+    }
 
     const bc = document.querySelector('.breadcrumb .current-page');
     if (bc) bc.textContent = product.name;
@@ -751,13 +840,12 @@ function selectColor(btn) {
 // DELIVERY FEE CALCULATOR
 // =========================================
 function getDeliveryFee(countryCode, postcode) {
-    if (countryCode === 'BE') return 0; // FREE for Belgium
     if (countryCode === 'NL') {
         const pc = (postcode || '').replace(/\s/g,'');
         if (pc.startsWith('7') || pc.startsWith('8')) return 50;
         return 30;
     }
-    return 30; // LU, FR, DE: €30
+    return 30; // BE (under €1000), LU, FR, DE: €30
 }
 
 // =========================================
@@ -838,7 +926,7 @@ function initCheckout() {
             _subject: `New COD Order – ${fd.get('firstName')} ${fd.get('lastName')}`,
             cart_items: cartSummary,
             subtotal: `€${subtotal.toFixed(2)}`,
-            delivery_fee: freeDelivery ? 'FREE (Belgium ≥€500)' : `€${finalDelivery.toFixed(2)}`,
+            delivery_fee: freeDelivery ? 'FREE (Belgium ≥€1,000)' : `€${finalDelivery.toFixed(2)}`,
             floor_surcharge: floorCost > 0 ? `+€${floorCost}` : 'None',
             promo_code: promoData ? `${promoCode} – ${promoData.label}` : 'None',
             promo_discount: promoData ? `-€${promoData.discount}` : 'None',
@@ -974,7 +1062,7 @@ function renderOrderSummary(appliedPromo) {
 
     if (subtotalEl) subtotalEl.textContent = `€${sub.toFixed(2)}`;
 
-    let deliveryLabel = freeDelivery ? 'FREE (Belgium – order over €500)' : `€${finalDelivery.toFixed(2)}`;
+    let deliveryLabel = freeDelivery ? 'FREE (Belgium – order over €1,000)' : `€${finalDelivery.toFixed(2)}`;
     if (!freeDelivery && countryCode !== 'BE') {
         const specialNote = (countryCode === 'NL' && (postcode.startsWith('7') || postcode.startsWith('8'))) ? ' (NL 7xxx/8xxx surcharge)' : '';
         deliveryLabel += specialNote;
@@ -1074,7 +1162,7 @@ function renderCart() {
     const d = document.getElementById('cartDelivery');
     const t = document.getElementById('cartTotal');
     if (s) s.textContent = `€${sub.toFixed(2)}`;
-    if (d) d.textContent = sub >= CONFIG.FREE_DELIVERY_THRESHOLD ? 'FREE (Belgium orders ≥€500) – surcharge shown at checkout for other countries' : 'Calculated at checkout (free in Belgium over €500)';
+    if (d) d.textContent = sub >= CONFIG.FREE_DELIVERY_THRESHOLD ? 'FREE (Belgium orders ≥€1,000) – €30 charge for other countries' : sub > 0 && countryCode === 'BE' ? '€30 (free in Belgium over €1,000)' : 'Calculated at checkout (free in Belgium over €1,000)';
     if (t) t.textContent = `€${sub.toFixed(2)} + delivery`;
 }
 
@@ -1106,7 +1194,7 @@ function renderDeliveryPage() {
             const excl  = zone?.excludedPrefixes?.some(p => postcode.startsWith(p));
             const day   = getDeliveryDayHint(country, postcode);
             const fee   = getDeliveryFee(country, postcode);
-            const feeLabel = country === 'BE' ? 'Free delivery (Belgium)' : `€${fee} delivery surcharge`;
+            const feeLabel = country === 'BE' ? 'Free delivery (Belgium)' : `€${fee} delivery charge`;
 
             if (!valid || excl) {
                 lookupResult.innerHTML = `<div class="lookup-result error">⚠ We don't currently deliver to this postcode area.</div>`;
@@ -1134,7 +1222,7 @@ function initNewsletter() {
 function buildSharedNav() {
     return `
     <div class="announcement-bar" id="sharedAnnouncementBar">
-        <p>Free Delivery in Belgium on Orders Over €500 &nbsp;|&nbsp; Cash on Delivery &nbsp;|&nbsp; BE · NL · LU · FR · DE</p>
+        <p>Free Delivery in Belgium on Orders Over €1,000 &nbsp;|&nbsp; +€30 Other Countries &nbsp;|&nbsp; Cash on Delivery &nbsp;|&nbsp; BE · NL · LU · FR · DE</p>
     </div>
     <header class="header" id="header">
         <div class="header-container">
@@ -1262,7 +1350,7 @@ function buildSharedFooter() {
                 <p>© 2025 Vantage Home. All rights reserved.</p>
                 <div class="delivery-countries">
                     <span>We deliver to:</span>
-                    <img src="https://flagcdn.com/w20/be.png" alt="Belgium" title="Belgium – Free delivery over €500">
+                    <img src="https://flagcdn.com/w20/be.png" alt="Belgium" title="Belgium – Free delivery on orders over €1,000">
                     <img src="https://flagcdn.com/w20/nl.png" alt="Netherlands" title="Netherlands – +€30 (7xxx/8xxx +€50)">
                     <img src="https://flagcdn.com/w20/lu.png" alt="Luxembourg" title="Luxembourg – +€30">
                     <img src="https://flagcdn.com/w20/fr.png" alt="France" title="France – Northern regions, +€30">
