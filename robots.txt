@@ -1,10 +1,19 @@
-# robots.txt for vantagehome1.com
+# Vantage Home – robots.txt
 User-agent: *
 Allow: /
 
-# Block cart and checkout from indexing — no SEO value
+# Block transactional pages (no SEO value)
 Disallow: /cart.html
 Disallow: /checkout.html
 
-# Point Google to your sitemap
+# Block detail page (JS-rendered, Google can't index it properly)
+Disallow: /detail.html
+
+# Allow all crawlers full access to assets
+Allow: /home.css
+Allow: /home.js
+Allow: /logo.PNG
+Allow: /products.json
+
+# Sitemap location
 Sitemap: https://www.vantagehome1.com/sitemap.xml
