@@ -298,7 +298,12 @@
     "images": [
       "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_atqw90atqw90atqw.png?v=1777054976"
     ],
-    "price": 550
+    "price": 550,
+    "sizeValues": {
+      "140x200": 550,
+      "160x200": 580,
+      "180x200": 630
+    }
   },
   {
     "id": "mattress-spring-01",
@@ -511,7 +516,7 @@
   {
     "id": "dining-1840-01",
     "legacyId": 10,
-    "name": "Model 1840 – Marble White & Gold 6-Seater Dining Set",
+    "name": "Elegant Turkish Style 6-Seater Dining Set – Printed Glass Top",
     "category": "dining",
     "style": "marble",
     "badge": null,
@@ -546,14 +551,14 @@
     ],
     "featured": false,
     "images": [
-      "C:\Users\Afzaal Akram\Desktop\Product Pictures"
+      "https://newlookhome.eu/cdn/shop/files/clean_4ead063f-bedd-41fb-bd63-f2a5187fac58.png?v=1776963265"
     ]
   },
   {
     "id": "dining-1639-01",
     "legacyId": 17,
     "name": "Model 1639 – Marble Black & White 6-Seater Dining Set",
-    "category": "dining",
+    "category": "dining-hidden",
     "style": "marble",
     "badge": null,
     "description": "Striking marble-effect black and white pattern dining set with chrome legs and matching chairs. Seats 6. No assembly charge.",
@@ -592,8 +597,8 @@
   },
   {
     "id": "dining-155-01",
-    "legacyId": 18,
-    "name": "Dinings-155 | White Strip 6-Seater Dining Set – Black & White",
+    "legacyId": 11,
+    "name": "Luxury LV Black & Gold 6-Seater Extendable Dining Set",
     "category": "dining",
     "style": "luxury",
     "badge": null,
@@ -603,7 +608,7 @@
       "6 Chair Set": 480
     },
     "sizeValues": {
-      "6 Chair Set": 450
+      "6 Chair Set": 480
     },
     "sizes": [
       "6 Chair Set"
@@ -635,7 +640,7 @@
     "id": "dining-1236-01",
     "legacyId": 19,
     "name": "Model 1236 – Patterned Glass 6-Seater Dining Set – Black",
-    "category": "dining",
+    "category": "dining-hidden",
     "style": "set",
     "badge": null,
     "description": "Bold black dining set with decorative patterned glass top and matching black chairs. Chrome legs. Seats 6. No assembly charge.",
@@ -676,7 +681,7 @@
     "id": "dining-plain-grey-01",
     "legacyId": 20,
     "name": "Plain Grey 6-Seater Dining Set – Extending Glass Table",
-    "category": "dining",
+    "category": "dining-hidden",
     "style": "set",
     "badge": null,
     "description": "Clean and modern plain grey dining set with extending glass table top and matching grey chairs. Chrome legs. Seats 6. No assembly charge.",
@@ -717,7 +722,7 @@
     "id": "dining-1006-01",
     "legacyId": 21,
     "name": "Dining 1006 – Rustic Wood Brown 6-Seater Dining Set",
-    "category": "dining",
+    "category": "dining-hidden",
     "style": "set",
     "badge": null,
     "description": "Rustic solid wood brown dining table with matching chairs. Warm, natural wood grain finish. Seats 6. No assembly charge.",
