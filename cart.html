@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LW2GQKDG3P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LW2GQKDG3P');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart | Vantage Home</title>
@@ -9,65 +17,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="home.css">
     <style>
-        /* ── Cart layout ── */
-        .cart-layout {
+        /* ── Layout ── */
+        .cart-page { padding: 1.5rem 0 5rem; background: var(--off-white); min-height: 70vh; }
+        .cart-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
         @media (min-width: 1024px) {
-            .cart-layout.has-summary {
-                grid-template-columns: 1fr 380px;
-            }
-        }
-        .cart-items-panel {
-            background: var(--white);
-            padding: 1.25rem;
-            border-radius: var(--radius-lg);
-        }
-        .cart-summary-panel {
-            background: var(--white);
-            padding: 1.25rem;
-            border-radius: var(--radius-lg);
-            height: fit-content;
+            .cart-page { padding: 2rem 0 4rem; }
+            .cart-grid { grid-template-columns: 1fr 360px; align-items: start; }
         }
 
-        /* ── Cart item: mobile-first ── */
+        /* ── Panels ── */
+        .cart-panel {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+        }
+        @media (min-width: 768px) { .cart-panel { padding: 1.5rem; } }
+
+        /* ── Item row ── */
         .cart-item {
             display: grid;
-            grid-template-columns: 88px 1fr;
+            grid-template-columns: 80px 1fr;
             gap: 0.75rem;
-            padding: 1rem 0;
+            padding: 0.9rem 0;
             border-bottom: 1px solid var(--light-gray);
             align-items: start;
         }
         .cart-item:last-child { border-bottom: none; }
 
         .cart-item-img {
-            width: 88px;
-            height: 88px;
+            width: 80px; height: 80px;
             object-fit: cover;
             border-radius: var(--radius-md);
-            display: block;
+            flex-shrink: 0;
         }
 
-        .cart-item-body {
-            min-width: 0; /* prevent text overflow */
-            display: flex;
-            flex-direction: column;
-            gap: 0.2rem;
-        }
+        .cart-item-body { min-width: 0; }
 
         .cart-item-name {
             font-family: var(--font-display);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             line-height: 1.3;
             color: var(--charcoal);
-            /* truncate to 2 lines */
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            margin-bottom: 0.2rem;
         }
 
         .cart-item-meta {
@@ -76,165 +75,109 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            margin-bottom: 0.25rem;
         }
 
         .cart-item-unit-price {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: var(--gold);
+            margin-bottom: 0.4rem;
         }
 
+        /* qty + remove row */
         .cart-item-controls {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            margin-top: 0.4rem;
             flex-wrap: wrap;
         }
 
         .cart-qty {
             display: flex;
             align-items: center;
-            gap: 0.35rem;
             background: var(--off-white);
             border-radius: var(--radius-sm);
-            padding: 2px 4px;
+            padding: 2px;
+            gap: 2px;
         }
-
         .cart-qty-btn {
-            width: 30px;
-            height: 30px;
+            width: 30px; height: 30px;
             border-radius: 4px;
             background: var(--white);
             border: 1px solid var(--light-gray);
-            font-size: 1.1rem;
-            line-height: 1;
+            font-size: 1rem;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             color: var(--charcoal);
             touch-action: manipulation;
         }
         .cart-qty-btn:active { background: var(--light-gray); }
-
-        .cart-qty-val {
-            min-width: 28px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
+        .cart-qty-val { min-width: 26px; text-align: center; font-weight: 600; font-size: 0.9rem; }
 
         .cart-item-line-price {
-            font-weight: 700;
-            font-size: 0.95rem;
+            font-weight: 700; font-size: 0.9rem;
             color: var(--charcoal);
+            white-space: nowrap;
             margin-left: auto;
         }
 
         .cart-remove-btn {
-            font-size: 0.75rem;
-            color: var(--error);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 4px 0;
-            text-decoration: underline;
+            font-size: 0.72rem; color: var(--error);
+            background: none; border: none; cursor: pointer;
+            text-decoration: underline; padding: 2px 0;
             touch-action: manipulation;
         }
 
-        /* ── Desktop: slightly bigger image ── */
-        @media (min-width: 768px) {
-            .cart-item {
-                grid-template-columns: 110px 1fr;
-                gap: 1rem;
-                padding: 1.25rem 0;
-            }
-            .cart-item-img {
-                width: 110px;
-                height: 110px;
-            }
-            .cart-item-name { font-size: 1.05rem; }
-            .cart-items-panel,
-            .cart-summary-panel { padding: 1.5rem; }
-        }
-
-        /* ── Summary "Total" row fix – no overflow ── */
-        #cartDelivery, #cartTotal {
+        /* ── Summary rows — critical: no overflow ── */
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
             font-size: 0.9rem;
-            text-align: right;
+            padding: 0.35rem 0;
         }
-        #cartTotal { font-weight: 700; color: var(--charcoal); }
+        .summary-row span:last-child { white-space: nowrap; flex-shrink: 0; }
+        .summary-total {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            border-top: 1px solid var(--light-gray);
+            padding-top: 0.75rem;
+            margin-top: 0.5rem;
+        }
 
-        /* ── Mobile-first critical fixes ── */
+        /* ── Sticky checkout bar — mobile only ── */
+        .cart-sticky-checkout {
+            display: none;
+        }
         @media (max-width: 767px) {
-            /* Prevent ANY horizontal overflow */
-            .cart-layout,
-            .cart-items-panel,
-            .cart-summary-panel {
-                min-width: 0;
-                overflow: hidden;
-            }
-
-            /* Tighten panels on small screens */
-            .cart-items-panel,
-            .cart-summary-panel {
-                padding: 1rem 0.875rem;
-            }
-
-            /* Summary panel: full-width rows that don't overflow */
-            .cart-summary-panel > div[style*="flex-direction:column"] > div,
-            .cart-summary-panel .order-totals-row {
+            .cart-sticky-checkout {
                 display: flex;
-                justify-content: space-between;
-                align-items: baseline;
-                gap: 0.5rem;
-                font-size: 0.9rem;
-                flex-wrap: nowrap;
+                position: fixed;
+                bottom: 0; left: 0; right: 0;
+                background: var(--white);
+                border-top: 1px solid var(--light-gray);
+                padding: 0.75rem 1rem;
+                gap: 0.75rem;
+                align-items: center;
+                z-index: 200;
+                box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
             }
-
-            /* Ensure currency values don't wrap or get clipped */
-            #cartSubtotal,
-            #cartDelivery,
-            #cartTotal {
+            .cart-sticky-checkout .sticky-total {
+                font-weight: 700;
+                font-size: 1rem;
+                color: var(--charcoal);
                 white-space: nowrap;
-                flex-shrink: 0;
-                font-size: 0.9rem;
-                max-width: none;
             }
-
-            /* Qty controls: keep them compact */
-            .cart-item-controls {
-                gap: 0.35rem;
-            }
-
-            /* Buttons: full width, good tap target */
-            .cart-summary-panel .btn {
-                width: 100%;
+            .cart-sticky-checkout a {
+                flex: 1;
+                text-align: center;
                 min-height: 48px;
-                font-size: 0.95rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-            }
-
-            /* Remove line-price from overflowing */
-            .cart-item-line-price {
-                font-size: 0.88rem;
-            }
-        }
-
-        @media (max-width: 380px) {
-            .cart-item {
-                grid-template-columns: 72px 1fr;
-            }
-            .cart-item-img {
-                width: 72px;
-                height: 72px;
-            }
-            .cart-qty-btn {
-                width: 26px;
-                height: 26px;
             }
         }
     </style>
@@ -246,71 +189,126 @@
 
     <header class="header" id="header">
         <div class="header-container">
-            <a href="/" class="logo">
+            <a href="index.html" class="logo">
                 <span class="logo-text">VANTAGE</span>
                 <span class="logo-subtext">HOME</span>
             </a>
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="beds.html" class="nav-link">Beds</a></li>
+                    <li class="nav-item"><a href="mattresses.html" class="nav-link">Mattresses</a></li>
+                    <li class="nav-item"><a href="sofas.html" class="nav-link">Sofas</a></li>
+                    <li class="nav-item"><a href="dining.html" class="nav-link">Dining</a></li>
+                    <li class="nav-item"><a href="wardrobes.html" class="nav-link">Wardrobes</a></li>
+                    <li class="nav-item"><a href="delivery.html" class="nav-link" style="color:var(--gold);font-weight:600;">🚚 Delivery</a></li>
+                </ul>
+            </nav>
             <div class="header-actions">
                 <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
                     <span class="cart-count" id="cartCount" style="display:none;">0</span>
                 </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
 
-    <main style="padding:2rem 0 4rem;background:var(--off-white);min-height:70vh;">
-        <div class="container">
-            <div style="margin-bottom:1.5rem;">
-                <nav class="breadcrumb"><a href="/">Home</a><span>/</span><span>Cart</span></nav>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <span class="logo-text">VANTAGE HOME</span>
+                <button class="mobile-nav-close" id="mobileNavClose">✕</button>
             </div>
-            <h1 style="font-family:var(--font-display);font-size:2rem;color:var(--charcoal);margin-bottom:1.5rem;">Your Cart</h1>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item"><a href="beds.html" class="mobile-nav-link">Beds</a></li>
+                <li class="mobile-nav-item"><a href="mattresses.html" class="mobile-nav-link">Mattresses</a></li>
+                <li class="mobile-nav-item"><a href="sofas.html" class="mobile-nav-link">Sofas</a></li>
+                <li class="mobile-nav-item"><a href="dining.html" class="mobile-nav-link">Dining</a></li>
+                <li class="mobile-nav-item"><a href="wardrobes.html" class="mobile-nav-link">Wardrobes</a></li>
+                <li class="mobile-nav-item"><a href="delivery.html" class="mobile-nav-link" style="color:var(--gold);font-weight:600;">🚚 Delivery</a></li>
+            </ul>
+        </div>
+    </div>
 
-            <div class="cart-layout" id="cartLayout">
-                <!-- Cart Items -->
-                <div class="cart-items-panel">
-                    <div id="cartItems"><!-- Loaded via JS --></div>
+    <main class="cart-page">
+        <div class="container">
+            <nav class="breadcrumb" style="margin-bottom:1rem;"><a href="index.html">Home</a><span>/</span><span>Cart</span></nav>
+            <h1 style="font-family:var(--font-display);font-size:1.8rem;color:var(--charcoal);margin-bottom:1.25rem;">Your Cart</h1>
+
+            <div class="cart-grid" id="cartGrid">
+                <!-- Items panel -->
+                <div class="cart-panel">
+                    <div id="cartItems"></div>
                 </div>
 
-                <!-- Cart Summary -->
-                <div class="cart-summary-panel" id="cartSummary" style="display:none;">
-                    <h2 style="font-family:var(--font-display);font-size:1.4rem;margin-bottom:1.5rem;color:var(--charcoal);">Order Summary</h2>
-                    <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem;">
-                        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;"><span style="flex-shrink:0;">Subtotal</span><span id="cartSubtotal" style="white-space:nowrap;flex-shrink:0;">€0.00</span></div>
-                        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;"><span style="flex-shrink:0;">Delivery</span><span id="cartDelivery" style="white-space:nowrap;flex-shrink:0;">€49.00</span></div>
-                        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;font-size:1.2rem;font-weight:600;padding-top:.75rem;border-top:1px solid var(--light-gray);"><span style="flex-shrink:0;">Total</span><span id="cartTotal" style="white-space:nowrap;flex-shrink:0;">€0.00</span></div>
+                <!-- Summary panel -->
+                <div class="cart-panel" id="cartSummary" style="display:none;">
+                    <h2 style="font-family:var(--font-display);font-size:1.3rem;color:var(--charcoal);margin-bottom:1.25rem;">Order Summary</h2>
+
+                    <div class="summary-row"><span>Subtotal</span><span id="cartSubtotal">€0.00</span></div>
+                    <div class="summary-row"><span>Delivery</span><span id="cartDelivery">Calculated at checkout</span></div>
+                    <div class="summary-row summary-total"><span>Total</span><span id="cartTotal">€0.00</span></div>
+
+                    <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;">
+                        <a href="checkout.html" class="btn btn-primary" style="display:flex;align-items:center;justify-content:center;min-height:50px;font-size:1rem;">Proceed to Checkout</a>
+                        <a href="products.html" class="btn btn-outline-dark" style="display:flex;align-items:center;justify-content:center;min-height:46px;">Continue Shopping</a>
                     </div>
-                    <a href="checkout.html" class="btn btn-primary btn-block" style="display:flex;align-items:center;justify-content:center;text-align:center;margin-bottom:.75rem;min-height:48px;">Proceed to Checkout</a>
-                    <a href="products.html" class="btn btn-outline-dark btn-block" style="display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px;">Continue Shopping</a>
-                    <div style="display:flex;align-items:center;gap:.75rem;padding:.75rem;background:var(--off-white);border-radius:var(--radius-md);margin-top:1rem;">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="flex-shrink:0;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                        <span style="font-size:.85rem;color:var(--charcoal);"><strong>Cash on Delivery</strong> – pay when your furniture arrives</span>
+
+                    <div style="display:flex;align-items:center;gap:0.75rem;margin-top:1rem;padding:0.85rem;background:var(--off-white);border-radius:var(--radius-md);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="flex-shrink:0;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                        <span style="font-size:0.83rem;color:var(--charcoal);"><strong>Cash on Delivery</strong> – pay when your furniture arrives</span>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- Sticky bar shown on mobile when cart has items -->
+    <div class="cart-sticky-checkout" id="cartStickyBar">
+        <span class="sticky-total" id="stickyTotal">€0.00</span>
+        <a href="checkout.html" class="btn btn-primary">Checkout →</a>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
                 <p>&copy; 2025 Vantage Home. All rights reserved.</p>
+                <div class="delivery-countries">
+                    <span>Delivering to:</span>
+                    <img src="https://flagcdn.com/w20/be.png" alt="Belgium">
+                    <img src="https://flagcdn.com/w20/nl.png" alt="Netherlands">
+                    <img src="https://flagcdn.com/w20/lu.png" alt="Luxembourg">
+                    <img src="https://flagcdn.com/w20/fr.png" alt="France">
+                    <img src="https://flagcdn.com/w20/de.png" alt="Germany">
+                </div>
             </div>
         </div>
     </footer>
 
     <script src="home.js"></script>
     <script>
-        // When summary becomes visible, add responsive class to layout
         document.addEventListener('DOMContentLoaded', () => {
-            const layout = document.getElementById('cartLayout');
-            const summary = document.getElementById('cartSummary');
-            const observer = new MutationObserver(() => {
+            const summary   = document.getElementById('cartSummary');
+            const stickyBar = document.getElementById('cartStickyBar');
+            const stickyTotal = document.getElementById('stickyTotal');
+
+            const sync = () => {
+                const t = document.getElementById('cartTotal');
+                if (t) stickyTotal.textContent = t.textContent;
+            };
+
+            new MutationObserver(() => {
                 if (summary.style.display !== 'none') {
-                    layout.classList.add('has-summary');
+                    sync();
+                    // keep syncing as JS updates totals
+                    new MutationObserver(sync).observe(
+                        document.getElementById('cartTotal'),
+                        { childList: true, subtree: true, characterData: true }
+                    );
                 }
-            });
-            observer.observe(summary, { attributes: true, attributeFilter: ['style'] });
+            }).observe(summary, { attributes: true, attributeFilter: ['style'] });
         });
     </script>
 </body>
