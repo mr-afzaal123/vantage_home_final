@@ -433,8 +433,13 @@ function initProductsPage() {
 // PRODUCT DETAIL PAGE
 // =========================================
 function initProductDetail() {
-    const id = parseInt(new URLSearchParams(window.location.search).get('id'));
-    const product = products.find(p => p.id == id);
+    const rawId = new URLSearchParams(window.location.search).get('id');
+    // Support both string IDs ('bed-ambassador-01') and numeric indices ('4')
+    let product = products.find(p => String(p.id) === String(rawId));
+    if (!product) {
+        const numId = parseInt(rawId);
+        if (!isNaN(numId)) product = products[numId] || products.find(p => p.id == numId);
+    }
 
     if (!product) {
         document.querySelector('main').innerHTML = '<div class="container" style="padding:4rem;text-align:center;"><h2>Product not found</h2><a href="products.html" class="btn btn-primary">Browse All Products</a></div>';
