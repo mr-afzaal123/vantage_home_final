@@ -13,12 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Buy bed frames, upholstered beds, storage beds, sofas, corner sofas and dining table sets with free delivery in Belgium. Cash on Delivery across BE, NL, LU, FR & DE. Single to super king sizes in stock.">
     <title>Bed Frames, Sofas & Dining Tables | Free Delivery Belgium | Vantage Home</title>
-    <link rel="canonical" href="https://www.vantagehome1.com/">
+    <link rel="canonical" href="https://www.vantagehome1.com/index.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="home.css">
-    <link rel="icon" type="image/png" href="/logo.PNG">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -44,66 +43,11 @@
     "@type": "OfferCatalog",
     "name": "Furniture Collection",
     "itemListElement": [
-      {
-        "@type": "Product",
-        "name": "Divan Bed Frame with Mattress",
-        "description": "Upholstered divan bed with storage drawers, available in 90x200 to 180x200",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "EUR",
-          "price": "355",
-          "availability": "https://schema.org/InStock",
-          "url": "https://www.vantagehome1.com/products.html?category=beds&style=divan"
-        }
-      },
-      {
-        "@type": "Product",
-        "name": "Panel Bed Frame with Storage",
-        "description": "Platform bed frame with gas-lift storage, 140x200 to 180x200",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "EUR",
-          "price": "450",
-          "availability": "https://schema.org/InStock",
-          "url": "https://www.vantagehome1.com/products.html?category=beds&style=florida-panel"
-        }
-      },
-      {
-        "@type": "Product",
-        "name": "Corner Sofa L-Shape 7 Seater",
-        "description": "Large sectional sofa with adjustable headrests",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "EUR",
-          "price": "700",
-          "availability": "https://schema.org/InStock",
-          "url": "https://www.vantagehome1.com/products.html?category=sofas&type=l-shape"
-        }
-      },
-      {
-        "@type": "Product",
-        "name": "3 Seater Sofa Bed with Storage",
-        "description": "Compact sofa bed with hidden storage",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "EUR",
-          "price": "480",
-          "availability": "https://schema.org/InStock",
-          "url": "https://www.vantagehome1.com/products.html?category=sofas&type=3-seater"
-        }
-      },
-      {
-        "@type": "Product",
-        "name": "Extendable Dining Table Set 6 Seater",
-        "description": "Luxury dining table and chairs set",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "EUR",
-          "price": "480",
-          "availability": "https://schema.org/InStock",
-          "url": "https://www.vantagehome1.com/products.html?category=dining"
-        }
-      }
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Divan Bed Frame with Mattress", "description": "Upholstered divan bed with storage drawers, available in 90x200 to 180x200"}, "priceCurrency": "EUR", "price": "355"},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Panel Bed Frame with Storage", "description": "Platform bed frame with gas-lift storage, 140x200 to 180x200"}, "priceCurrency": "EUR", "price": "450"},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Corner Sofa L-Shape 7 Seater", "description": "Large sectional sofa with adjustable headrests"}, "priceCurrency": "EUR", "price": "700"},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "3 Seater Sofa Bed with Storage", "description": "Compact sofa bed with hidden storage"}, "priceCurrency": "EUR", "price": "480"},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Extendable Dining Table Set 6 Seater", "description": "Luxury dining table and chairs set"}, "priceCurrency": "EUR", "price": "480"}
     ]
   }
 }
@@ -141,14 +85,14 @@
  
     <!-- Announcement Bar -->
     <div class="announcement-bar">
-        <p>Free Delivery in Belgium on Orders Over €1000 &nbsp;|&nbsp; Cash on Delivery Available &nbsp;|&nbsp; Serving BE, NL, LU, FR & DE</p>
+        <p>Free Delivery in Belgium on Orders Over €500 &nbsp;|&nbsp; Cash on Delivery Available &nbsp;|&nbsp; Serving BE, NL, LU, FR & DE</p>
     </div>
  
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-container">
  
-            <a href="/" class="logo">
+            <a href="index.html" class="logo">
                 <span class="logo-text">VANTAGE</span>
                 <span class="logo-subtext">HOME</span>
             </a>
@@ -158,11 +102,11 @@
                 <ul class="nav-list">
  
                     <!-- Home -->
-                    <a href="/" class="nav-link" style="font-weight:600;">🏠 Home</a>
+                    <li class="nav-item"><a href="index.html" class="nav-link" style="font-weight:600;">🏠 Home</a></li>
 
                     <!-- Beds -->
                     <li class="nav-item has-dropdown">
-                        <a href="products.html?category=beds" class="nav-link">Beds</a>
+                        <a href="beds.html" class="nav-link">Beds</a>
                         <div class="dropdown-menu">
                             <div class="dropdown-content">
                                 <div class="dropdown-column">
@@ -193,7 +137,7 @@
  
                     <!-- Mattresses -->
                     <li class="nav-item has-dropdown">
-                        <a href="products.html?category=mattresses" class="nav-link">Mattresses</a>
+                        <a href="mattresses.html" class="nav-link">Mattresses</a>
                         <div class="dropdown-menu">
                             <div class="dropdown-content">
                                 <div class="dropdown-column">
@@ -223,7 +167,7 @@
  
                     <!-- Sofas -->
                     <li class="nav-item has-dropdown">
-                        <a href="products.html?category=sofas" class="nav-link">Sofas</a>
+                        <a href="sofas.html" class="nav-link">Sofas</a>
                         <div class="dropdown-menu">
                             <div class="dropdown-content">
                                 <div class="dropdown-column">
@@ -250,7 +194,7 @@
  
                     <!-- Dining -->
                     <li class="nav-item has-dropdown">
-                        <a href="products.html?category=dining" class="nav-link">Dining</a>
+                        <a href="dining.html" class="nav-link">Dining</a>
                         <div class="dropdown-menu">
                             <div class="dropdown-content">
                                 <div class="dropdown-column">
@@ -263,7 +207,7 @@
                                 <div class="dropdown-column">
                                     <h4>Details</h4>
                                     <ul>
-                                        <li><a href="products.html?category=dining">View All Dining</a></li>
+                                        <li><a href="dining.html">View All Dining</a></li>
                                     </ul>
                                 </div>
                                 <div class="dropdown-image">
@@ -276,7 +220,7 @@
  
                     <!-- Wardrobes -->
                     <li class="nav-item has-dropdown">
-                        <a href="products.html?category=wardrobes" class="nav-link">Wardrobes</a>
+                        <a href="wardrobes.html" class="nav-link">Wardrobes</a>
                         <div class="dropdown-menu">
                             <div class="dropdown-content">
                                 <div class="dropdown-column">
@@ -347,7 +291,7 @@
     <div class="mobile-nav" id="mobileNav">
         <div class="mobile-nav-content">
             <div class="mobile-nav-header">
-                <a href="/" style="display:flex;flex-direction:column;line-height:1;">
+                <a href="index.html" style="display:flex;flex-direction:column;line-height:1;">
                     <span class="logo-text" style="font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--charcoal);letter-spacing:.15em;">VANTAGE</span>
                     <span style="font-size:.6rem;font-weight:500;color:var(--gold);letter-spacing:.4em;text-transform:uppercase;">HOME</span>
                 </a>
@@ -360,7 +304,7 @@
             </div>
             <ul class="mobile-nav-list">
                 <li class="mobile-nav-item">
-                    <a href="/" class="mobile-nav-link" style="color:var(--gold);font-weight:600;">🏠 Home</a>
+                    <a href="index.html" class="mobile-nav-link" style="color:var(--gold);font-weight:600;">🏠 Home</a>
                 </li>
                 <li class="mobile-nav-item">
                     <button class="mobile-nav-link" data-target="mob-beds">Beds <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
@@ -369,7 +313,7 @@
                         <li><a href="products.html?category=beds&style=florida-panel">Florida &amp; Panel Beds</a></li>
                         <li><a href="products.html?category=beds&style=sleigh-hilton">Sleigh &amp; Hilton Beds</a></li>
                         <li><a href="products.html?category=beds&style=butterfly">Butterfly Beds</a></li>
-                        <li><a href="products.html?category=beds" class="view-all">View All Beds →</a></li>
+                        <li><a href="beds.html" class="view-all">View All Beds →</a></li>
                     </ul>
                 </li>
                 <li class="mobile-nav-item">
@@ -377,7 +321,7 @@
                     <ul class="mobile-submenu" id="mob-mattresses">
                         <li><a href="products.html?category=mattresses&type=memory-foam">Memory Foam</a></li>
                         <li><a href="products.html?category=mattresses&type=pocket-spring">Spring</a></li>
-                        <li><a href="products.html?category=mattresses" class="view-all">View All Mattresses →</a></li>
+                        <li><a href="mattresses.html" class="view-all">View All Mattresses →</a></li>
                     </ul>
                 </li>
                 <li class="mobile-nav-item">
@@ -385,14 +329,14 @@
                     <ul class="mobile-submenu" id="mob-sofas">
                         <li><a href="products.html?category=sofas&type=3-seater">3-Seater with Storage</a></li>
                         <li><a href="products.html?category=sofas&type=l-shape">7-Seater L-Shape</a></li>
-                        <li><a href="products.html?category=sofas" class="view-all">View All Sofas →</a></li>
+                        <li><a href="sofas.html" class="view-all">View All Sofas →</a></li>
                     </ul>
                 </li>
                 <li class="mobile-nav-item">
-                    <a href="products.html?category=dining" class="mobile-nav-link">Dining Tables</a>
+                    <a href="dining.html" class="mobile-nav-link">Dining Tables</a>
                 </li>
                 <li class="mobile-nav-item">
-                    <a href="products.html?category=wardrobes" class="mobile-nav-link">Wardrobes</a>
+                    <a href="wardrobes.html" class="mobile-nav-link">Wardrobes</a>
                 </li>
                 <li class="mobile-nav-item">
                     <a href="delivery.html" class="mobile-nav-link">Delivery Info</a>
@@ -426,8 +370,8 @@
                         <h1>Sleep in<br>Pure Luxury</h1>
                         <p>Divan, Panel, Sleigh, Butterfly – every style crafted for the perfect night's sleep.</p>
                         <div class="hero-buttons">
-                            <a href="products.html?category=beds" class="btn btn-primary">Shop Beds</a>
-                            <a href="products.html?category=mattresses" class="btn btn-outline">Shop Mattresses</a>
+                            <a href="beds.html" class="btn btn-primary">Shop Beds</a>
+                            <a href="mattresses.html" class="btn btn-outline">Shop Mattresses</a>
                         </div>
                     </div>
                 </div>
@@ -439,7 +383,7 @@
                         <h1>Sofas That<br>Define Comfort</h1>
                         <p>From cosy 3-seaters to expansive 7-seater L-shapes, find your perfect piece.</p>
                         <div class="hero-buttons">
-                            <a href="products.html?category=sofas" class="btn btn-primary">Shop Sofas</a>
+                            <a href="sofas.html" class="btn btn-primary">Shop Sofas</a>
                         </div>
                     </div>
                 </div>
@@ -461,7 +405,7 @@
                 <div class="badges-grid">
                     <div class="badge-item">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                        <div><strong>Free Delivery</strong><span>Orders over €1000</span></div>
+                        <div><strong>Free Delivery</strong><span>Orders over €500</span></div>
                     </div>
                     <div class="badge-item">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
@@ -486,27 +430,27 @@
                     <h2>Shop by Category</h2>
                 </div>
                 <div class="categories-grid">
-                    <a href="products.html?category=beds" class="category-card large">
+                    <a href="beds.html" class="category-card large">
                         <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80" alt="Beds Collection"
                         >
                         <div class="category-overlay"><h3>Beds</h3><span>Divan, Panel, Sleigh &amp; Butterfly</span></div>
                     </a>
-                    <a href="products.html?category=sofas" class="category-card">
+                    <a href="sofas.html" class="category-card">
                         <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80" alt="Sofas"
                         >
                         <div class="category-overlay"><h3>Sofas</h3><span>3-Seater to 7-Seater L-Shape</span></div>
                     </a>
-                    <a href="products.html?category=mattresses" class="category-card">
+                    <a href="mattresses.html" class="category-card">
                         <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="Mattresses"
                         >
                         <div class="category-overlay"><h3>Mattresses</h3><span>All Sizes – BE, NL, LU, FR &amp; DE</span></div>
                     </a>
-                    <a href="products.html?category=dining" class="category-card">
+                    <a href="dining.html" class="category-card">
                         <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80" alt="Dining"
                         >
                         <div class="category-overlay"><h3>Dining</h3><span>Tables &amp; Chair Sets</span></div>
                     </a>
-                    <a href="products.html?category=wardrobes" class="category-card">
+                    <a href="wardrobes.html" class="category-card">
                         <img src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=600&q=80" alt="Wardrobes"
                         >
                         <div class="category-overlay"><h3>Wardrobes</h3><span>Sliding &amp; 3-Door Mirror</span></div>
@@ -537,15 +481,13 @@
                         <p>Beds, mattresses, sofas, wardrobes &amp; dining delivered to Belgium, Netherlands, Luxembourg, France (northern regions) and Germany (western regions).</p>
                         <a href="delivery.html" class="btn btn-outline-dark" style="margin-top:1rem;display:inline-flex;">View Delivery Schedule →</a>
                     </div>
-                    <div class="delivery-flags">
-    <div class="flags-row">
-        <div class="flag-pill"><img src="https://flagcdn.com/w40/be.png" alt="Belgium"><span>Belgium</span></div>
-        <div class="flag-pill"><img src="https://flagcdn.com/w40/nl.png" alt="Netherlands"><span>Netherlands</span></div>
-        <div class="flag-pill"><img src="https://flagcdn.com/w40/lu.png" alt="Luxembourg"><span>Luxembourg</span></div>
-        <div class="flag-pill"><img src="https://flagcdn.com/w40/fr.png" alt="France"><span>France*</span></div>
-        <div class="flag-pill"><img src="https://flagcdn.com/w40/de.png" alt="Germany"><span>Germany*</span></div>
-    </div>
-</div>
+                    <div class="delivery-flags" style="display:flex;flex-direction:row;flex-wrap:wrap;gap:1.25rem;align-items:center;margin-top:1rem;">
+                        <div class="flag-item" style="display:flex;flex-direction:column;align-items:center;gap:.3rem;"><img src="https://flagcdn.com/w40/be.png" alt="Belgium" style="width:40px;border-radius:3px;"><span style="font-size:.78rem;">Belgium</span></div>
+                        <div class="flag-item" style="display:flex;flex-direction:column;align-items:center;gap:.3rem;"><img src="https://flagcdn.com/w40/nl.png" alt="Netherlands" style="width:40px;border-radius:3px;"><span style="font-size:.78rem;">Netherlands</span></div>
+                        <div class="flag-item" style="display:flex;flex-direction:column;align-items:center;gap:.3rem;"><img src="https://flagcdn.com/w40/lu.png" alt="Luxembourg" style="width:40px;border-radius:3px;"><span style="font-size:.78rem;">Luxembourg</span></div>
+                        <div class="flag-item" style="display:flex;flex-direction:column;align-items:center;gap:.3rem;"><img src="https://flagcdn.com/w40/fr.png" alt="France" style="width:40px;border-radius:3px;"><span style="font-size:.78rem;">France*</span></div>
+                        <div class="flag-item" style="display:flex;flex-direction:column;align-items:center;gap:.3rem;"><img src="https://flagcdn.com/w40/de.png" alt="Germany" style="width:40px;border-radius:3px;"><span style="font-size:.78rem;">Germany*</span></div>
+                    </div>
                 </div>
                 <p style="font-size:.8rem;color:var(--dark-gray);margin-top:1rem;">* Partial coverage – see <a href="delivery.html" style="color:var(--gold);">delivery page</a> for postcodes.</p>
             </div>
@@ -565,16 +507,69 @@
                         <p>At Vantage Home, we believe furniture is more than function — it's the foundation for life's most important moments. Every piece is selected for quality, design, and lasting durability.</p>
                         <p>From Belgium to Germany, we deliver with care, offering Cash on Delivery so you only pay when your order arrives.</p>
                         <div class="story-stats">
-                            <div class="stat"><strong>Cash</strong><span>On Delivery</span></div>
                             <div class="stat"><strong>5</strong><span>Countries Served</span></div>
-                            <div class="stat"><strong>Delivery</strong><span>Within 1 Week</span></div>
+                            <div class="stat"><strong>Mon–Sat</strong><span>Weekly Deliveries</span></div>
+                            <div class="stat"><strong>COD</strong><span>Pay on Arrival</span></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
  
-        
+        <!-- Customer Reviews Section -->
+        <section style="padding:4rem 0;background:var(--charcoal);">
+            <div class="container" style="max-width:700px;">
+                <div class="section-header" style="text-align:center;margin-bottom:2rem;">
+                    <h2 style="font-family:var(--font-display);color:#fff;font-size:2rem;margin-bottom:.5rem;">Share Your Experience</h2>
+                    <p style="color:rgba(255,255,255,.7);font-size:.95rem;">Received your furniture? We'd love to hear what you think — your review helps other customers make the right choice.</p>
+                </div>
+                <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:2rem;">
+                    <form action="https://formspree.io/f/xpqbybjd" method="POST" id="reviewForm">
+                        <input type="hidden" name="_subject" value="New Customer Review – Vantage Home">
+                        <input type="hidden" name="form_type" value="customer_review">
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+                            <div>
+                                <label style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:.4rem;">Your Name *</label>
+                                <input type="text" name="reviewer_name" required placeholder="e.g. Marie L." style="width:100%;padding:.7rem .9rem;border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-md);background:rgba(255,255,255,.08);color:#fff;font-size:16px;font-family:var(--font-body);box-sizing:border-box;">
+                            </div>
+                            <div>
+                                <label style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:.4rem;">City &amp; Country *</label>
+                                <input type="text" name="reviewer_location" required placeholder="e.g. Brussels, Belgium" style="width:100%;padding:.7rem .9rem;border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-md);background:rgba(255,255,255,.08);color:#fff;font-size:16px;font-family:var(--font-body);box-sizing:border-box;">
+                            </div>
+                        </div>
+                        <div style="margin-bottom:1rem;">
+                            <label style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:.4rem;">What did you order? *</label>
+                            <input type="text" name="product_ordered" required placeholder="e.g. Divan bed 160x200, Grey" style="width:100%;padding:.7rem .9rem;border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-md);background:rgba(255,255,255,.08);color:#fff;font-size:16px;font-family:var(--font-body);box-sizing:border-box;">
+                        </div>
+                        <div style="margin-bottom:1rem;">
+                            <label style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:.4rem;">Your Rating *</label>
+                            <select name="rating" required style="width:100%;padding:.7rem .9rem;border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-md);background:rgba(255,255,255,.08);color:#fff;font-size:16px;font-family:var(--font-body);box-sizing:border-box;-webkit-appearance:none;appearance:none;">
+                                <option value="" style="background:#2C3E50;">Select rating…</option>
+                                <option value="★★★★★ – Excellent" style="background:#2C3E50;">★★★★★ – Excellent</option>
+                                <option value="★★★★☆ – Very Good" style="background:#2C3E50;">★★★★☆ – Very Good</option>
+                                <option value="★★★☆☆ – Good" style="background:#2C3E50;">★★★☆☆ – Good</option>
+                                <option value="★★☆☆☆ – Fair" style="background:#2C3E50;">★★☆☆☆ – Fair</option>
+                                <option value="★☆☆☆☆ – Poor" style="background:#2C3E50;">★☆☆☆☆ – Poor</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom:1.5rem;">
+                            <label style="display:block;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:.4rem;">Your Review *</label>
+                            <textarea name="review_message" rows="4" required placeholder="Tell us about the quality, delivery experience, and anything else customers should know…" style="width:100%;padding:.7rem .9rem;border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-md);background:rgba(255,255,255,.08);color:#fff;font-size:16px;font-family:var(--font-body);box-sizing:border-box;resize:vertical;min-height:100px;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;min-height:50px;font-size:1rem;">
+                            Submit My Review
+                        </button>
+                        <p style="font-size:.78rem;color:rgba(255,255,255,.5);text-align:center;margin-top:.75rem;">Reviews are sent directly to us. Approved reviews may be featured on this website.</p>
+                    </form>
+                    <div id="reviewSuccess" style="display:none;text-align:center;padding:2rem 1rem;">
+                        <div style="font-size:2.5rem;margin-bottom:.75rem;">✅</div>
+                        <h3 style="color:#fff;font-family:var(--font-display);margin-bottom:.5rem;">Thank You!</h3>
+                        <p style="color:rgba(255,255,255,.75);">Your review has been received. We really appreciate you taking the time to share your experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
         <!-- SEO Content Section -->
         <section style="padding:4rem 0;background:var(--white);">
             <div class="container" style="max-width:1000px;">
@@ -595,17 +590,17 @@
                 <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--light-gray);display:flex;flex-wrap:wrap;gap:0.5rem;">
                     <a href="products.html?category=beds&style=divan" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Divan bed</a>
                     <a href="products.html?category=beds&style=florida-panel" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Platform bed frame</a>
-                    <a href="products.html?category=beds" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Bed with storage</a>
-                    <a href="products.html?category=beds" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Bed with drawers</a>
-                    <a href="products.html?category=beds" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Upholstered bed frame</a>
+                    <a href="beds.html" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Bed with storage</a>
+                    <a href="beds.html" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Bed with drawers</a>
+                    <a href="beds.html" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Upholstered bed frame</a>
                     <a href="products.html?category=beds&style=sleigh-hilton" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Sleigh bed</a>
                     <a href="products.html?category=sofas&type=l-shape" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Corner sofa</a>
                     <a href="products.html?category=sofas&type=l-shape" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Sectional sofa</a>
                     <a href="products.html?category=sofas&type=3-seater" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Sofa bed</a>
-                    <a href="products.html?category=dining" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Dining table set</a>
-                    <a href="products.html?category=dining" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Extendable dining table</a>
-                    <a href="products.html?category=wardrobes" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Sliding wardrobe</a>
-                    <a href="products.html?category=mattresses" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Memory foam mattress</a>
+                    <a href="dining.html" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Dining table set</a>
+                    <a href="dining.html" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Extendable dining table</a>
+                    <a href="wardrobes.html" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Sliding wardrobe</a>
+                    <a href="mattresses.html" style="font-size:.8rem;padding:.3rem .75rem;border:1px solid var(--light-gray);border-radius:20px;color:var(--charcoal);background:var(--off-white);">Memory foam mattress</a>
                 </div>
             </div>
         </section>
@@ -630,7 +625,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo" style="margin-bottom:1rem;display:inline-flex;">
+                    <a href="index.html" class="logo" style="margin-bottom:1rem;display:inline-flex;">
                         <span class="logo-text" style="color:#fff;">VANTAGE</span>
                         <span style="color:var(--gold);font-size:.6rem;letter-spacing:.4em;margin-left:4px;align-self:flex-end;margin-bottom:4px;">HOME</span>
                     </a>
@@ -654,11 +649,11 @@
                 <div class="footer-links">
                     <h4>Shop</h4>
                     <ul>
-                        <li><a href="products.html?category=beds">Beds</a></li>
-                        <li><a href="products.html?category=mattresses">Mattresses</a></li>
-                        <li><a href="products.html?category=sofas">Sofas</a></li>
-                        <li><a href="products.html?category=dining">Dining Tables</a></li>
-                        <li><a href="products.html?category=wardrobes">Wardrobes</a></li>
+                        <li><a href="beds.html">Beds</a></li>
+                        <li><a href="mattresses.html">Mattresses</a></li>
+                        <li><a href="sofas.html">Sofas</a></li>
+                        <li><a href="dining.html">Dining Tables</a></li>
+                        <li><a href="wardrobes.html">Wardrobes</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
