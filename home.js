@@ -248,14 +248,33 @@ function initHeader() {
     const mobileNav = document.getElementById('mobileNav');
     const closeBtn  = document.getElementById('mobileNavClose');
 
-    toggle?.addEventListener('click', () => mobileNav.classList.add('open'));
-    closeBtn?.addEventListener('click', () => mobileNav.classList.remove('open'));
+    toggle?.addEventListener('click', () => {
+        mobileNav.classList.add('active');
+        toggle.classList.add('active');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    });
+
+    const closeNav = () => {
+        mobileNav.classList.remove('active');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    };
+
+    closeBtn?.addEventListener('click', closeNav);
+
+    // Close on backdrop click (clicking outside nav content)
+    mobileNav?.addEventListener('click', (e) => {
+        if (e.target === mobileNav) closeNav();
+    });
 
     // Mobile sub-menus
     document.querySelectorAll('.mobile-nav-link[data-target]').forEach(btn => {
         btn.addEventListener('click', () => {
             const sub = document.getElementById(btn.dataset.target);
-            sub?.classList.toggle('open');
+            sub?.classList.toggle('active');
+            btn.classList.toggle('active');
         });
     });
 
@@ -1288,20 +1307,49 @@ function buildSharedNav() {
             </div>
             <ul class="mobile-nav-list">
                 <li class="mobile-nav-item"><a href="index.html" class="mobile-nav-link" style="color:var(--gold);font-weight:600;">🏠 Home</a></li>
-                <li class="mobile-nav-item"><button class="mobile-nav-link" data-target="mob-beds">Beds <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                <li class="mobile-nav-item">
+                    <button class="mobile-nav-link" data-target="mob-beds">Beds <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
                     <ul class="mobile-submenu" id="mob-beds">
                         <li><a href="products.html?category=beds&style=divan">Divan Beds</a></li>
                         <li><a href="products.html?category=beds&style=florida-panel">Panel Beds</a></li>
-                        <li><a href="products.html?category=beds&style=sleigh-hilton">Sleigh & Hilton Beds</a></li>
+                        <li><a href="products.html?category=beds&style=sleigh-hilton">Sleigh &amp; Hilton Beds</a></li>
                         <li><a href="products.html?category=beds&style=butterfly">Butterfly Beds</a></li>
-                        <li><a href="products.html?category=beds" class="view-all">View All Beds →</a></li>
+                        <li><a href="beds.html" class="view-all">View All Beds →</a></li>
                     </ul>
                 </li>
-                <li class="mobile-nav-item"><a href="products.html?category=mattresses" class="mobile-nav-link">Mattresses</a></li>
-                <li class="mobile-nav-item"><a href="products.html?category=sofas" class="mobile-nav-link">Sofas</a></li>
-                <li class="mobile-nav-item"><a href="products.html?category=dining" class="mobile-nav-link">Dining Tables</a></li>
-                <li class="mobile-nav-item"><a href="products.html?category=wardrobes" class="mobile-nav-link">Wardrobes</a></li>
-                <li class="mobile-nav-item"><a href="delivery.html" class="mobile-nav-link" style="color:var(--gold);">🚚 Delivery Info</a></li>
+                <li class="mobile-nav-item">
+                    <button class="mobile-nav-link" data-target="mob-mattresses">Mattresses <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                    <ul class="mobile-submenu" id="mob-mattresses">
+                        <li><a href="products.html?category=mattresses&type=pocket-spring">Pocket Spring</a></li>
+                        <li><a href="products.html?category=mattresses&type=memory-foam">Foam Mattress</a></li>
+                        <li><a href="mattresses.html" class="view-all">View All Mattresses →</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item">
+                    <button class="mobile-nav-link" data-target="mob-sofas">Sofas <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                    <ul class="mobile-submenu" id="mob-sofas">
+                        <li><a href="products.html?category=sofas&type=3-seater">3-Seater Sofa Bed</a></li>
+                        <li><a href="products.html?category=sofas&type=l-shape">7-Seater L-Shape</a></li>
+                        <li><a href="sofas.html" class="view-all">View All Sofas →</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item">
+                    <button class="mobile-nav-link" data-target="mob-dining">Dining <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                    <ul class="mobile-submenu" id="mob-dining">
+                        <li><a href="products.html?category=dining&style=set">Turkish Glass Set</a></li>
+                        <li><a href="products.html?category=dining&style=luxury">Luxury LV Set</a></li>
+                        <li><a href="dining.html" class="view-all">View All Dining →</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item">
+                    <button class="mobile-nav-link" data-target="mob-wardrobes">Wardrobes <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                    <ul class="mobile-submenu" id="mob-wardrobes">
+                        <li><a href="products.html?category=wardrobes&type=3-door">3-Door Mirror Wardrobe</a></li>
+                        <li><a href="products.html?category=wardrobes&type=sliding">Sliding Door Wardrobe</a></li>
+                        <li><a href="wardrobes.html" class="view-all">View All Wardrobes →</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-nav-item"><a href="delivery.html" class="mobile-nav-link" style="color:var(--gold);font-weight:600;">🚚 Delivery Info</a></li>
             </ul>
         </div>
     </div>`;
