@@ -445,7 +445,7 @@ function initProductDetail() {
 
     // SEO: dynamic meta description
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', `${product.name} – from €${product.price}. ${product.description} Free delivery in Belgium on orders over €1,000. +€30 for other countries. Cash on Delivery.`);
+    if (metaDesc) metaDesc.setAttribute('content', `${product.name} – from €${product.price}. ${product.description} Free delivery in Belgium. +€30 for NL, LU, FR & DE. Cash on Delivery.`);
 
     // SEO: dynamic canonical
     const canonicalTag = document.getElementById('canonicalTag');
@@ -840,12 +840,13 @@ function selectColor(btn) {
 // DELIVERY FEE CALCULATOR
 // =========================================
 function getDeliveryFee(countryCode, postcode) {
+    if (countryCode === 'BE') return 0; // Belgium always free (threshold check done separately)
     if (countryCode === 'NL') {
         const pc = (postcode || '').replace(/\s/g,'');
         if (pc.startsWith('7') || pc.startsWith('8')) return 50;
         return 30;
     }
-    return 30; // BE (under €1000), LU, FR, DE: €30
+    return 30; // LU, FR, DE: +€30
 }
 
 // =========================================
@@ -910,7 +911,7 @@ function initCheckout() {
         const countryCode = fd.get('country');
         const postcode    = fd.get('postcode');
         const deliveryFee = getDeliveryFee(countryCode, postcode);
-        const freeDelivery = subtotal >= CONFIG.FREE_DELIVERY_THRESHOLD && countryCode === 'BE';
+        const freeDelivery = countryCode === 'BE'; // Belgium always free delivery
         const finalDelivery = freeDelivery ? 0 : deliveryFee;
         const floorCost  = parseInt(fd.get('floor')) || 0;
         const promoCode  = (fd.get('promoCode') || '').trim().toUpperCase();
@@ -926,7 +927,7 @@ function initCheckout() {
             _subject: `New COD Order – ${fd.get('firstName')} ${fd.get('lastName')}`,
             cart_items: cartSummary,
             subtotal: `€${subtotal.toFixed(2)}`,
-            delivery_fee: freeDelivery ? 'FREE (Belgium ≥€1,000)' : `€${finalDelivery.toFixed(2)}`,
+            delivery_fee: freeDelivery ? 'FREE (Belgium)' : `€${finalDelivery.toFixed(2)}`,
             floor_surcharge: floorCost > 0 ? `+€${floorCost}` : 'None',
             promo_code: promoData ? `${promoCode} – ${promoData.label}` : 'None',
             promo_discount: promoData ? `-€${promoData.discount}` : 'None',
@@ -1053,7 +1054,7 @@ function renderOrderSummary(appliedPromo) {
     const countryCode   = countrySelect ? countrySelect.value : 'BE';
     const postcode      = postcodeInput ? postcodeInput.value : '';
     const deliveryFee   = getDeliveryFee(countryCode, postcode);
-    const freeDelivery  = sub >= CONFIG.FREE_DELIVERY_THRESHOLD && countryCode === 'BE';
+    const freeDelivery  = countryCode === 'BE'; // Belgium always free
     const finalDelivery = freeDelivery ? 0 : deliveryFee;
 
     const floorSelect = document.querySelector('[name="floor"]');
@@ -1062,7 +1063,7 @@ function renderOrderSummary(appliedPromo) {
 
     if (subtotalEl) subtotalEl.textContent = `€${sub.toFixed(2)}`;
 
-    let deliveryLabel = freeDelivery ? 'FREE (Belgium – order over €1,000)' : `€${finalDelivery.toFixed(2)}`;
+    let deliveryLabel = freeDelivery ? 'FREE (Belgium)' : `€${finalDelivery.toFixed(2)}`;
     if (!freeDelivery && countryCode !== 'BE') {
         const specialNote = (countryCode === 'NL' && (postcode.startsWith('7') || postcode.startsWith('8'))) ? ' (NL 7xxx/8xxx surcharge)' : '';
         deliveryLabel += specialNote;
@@ -1162,7 +1163,7 @@ function renderCart() {
     const d = document.getElementById('cartDelivery');
     const t = document.getElementById('cartTotal');
     if (s) s.textContent = `€${sub.toFixed(2)}`;
-    if (d) d.textContent = sub >= CONFIG.FREE_DELIVERY_THRESHOLD ? 'FREE (Belgium orders ≥€1,000) – €30 charge for other countries' : sub > 0 && countryCode === 'BE' ? '€30 (free in Belgium over €1,000)' : 'Calculated at checkout (free in Belgium over €1,000)';
+    if (d) d.textContent = countryCode === 'BE' ? 'FREE (Belgium)' : sub > 0 ? 'Calculated at checkout (+€30 for NL/LU/FR/DE)' : 'Free for Belgium · +€30 for other countries';
     if (t) t.textContent = `€${sub.toFixed(2)} + delivery`;
 }
 
@@ -1222,7 +1223,7 @@ function initNewsletter() {
 function buildSharedNav() {
     return `
     <div class="announcement-bar" id="sharedAnnouncementBar">
-        <p>Free Delivery in Belgium on Orders Over €1,000 &nbsp;|&nbsp; +€30 Other Countries &nbsp;|&nbsp; Cash on Delivery &nbsp;|&nbsp; BE · NL · LU · FR · DE</p>
+        <p>Free Delivery in Belgium &nbsp;·&nbsp; Cash on Delivery &nbsp;·&nbsp; BE &nbsp;NL &nbsp;LU &nbsp;FR &nbsp;DE</p>
     </div>
     <header class="header" id="header">
         <div class="header-container">
@@ -1350,7 +1351,7 @@ function buildSharedFooter() {
                 <p>© 2025 Vantage Home. All rights reserved.</p>
                 <div class="delivery-countries">
                     <span>We deliver to:</span>
-                    <img src="https://flagcdn.com/w20/be.png" alt="Belgium" title="Belgium – Free delivery on orders over €1,000">
+                    <img src="https://flagcdn.com/w20/be.png" alt="Belgium" title="Belgium – Free Delivery">
                     <img src="https://flagcdn.com/w20/nl.png" alt="Netherlands" title="Netherlands – +€30 (7xxx/8xxx +€50)">
                     <img src="https://flagcdn.com/w20/lu.png" alt="Luxembourg" title="Luxembourg – +€30">
                     <img src="https://flagcdn.com/w20/fr.png" alt="France" title="France – Northern regions, +€30">
