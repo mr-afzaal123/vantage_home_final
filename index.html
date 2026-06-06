@@ -355,7 +355,7 @@
                                     <ul>
                                         <li><a href="products.html?category=mattresses&type=memory-foam">Memory Foam</a></li>
                                         <li><a href="products.html?category=mattresses&type=pocket-spring">Pocket Spring</a></li>
-                                        <li><a href="products.html?category=mattresses&type=orthopaedic">Orthopaedic</a></li>
+                                        <li><a href="products.html?category=mattresses&type=pocket-spring">Premium Pocket Spring</a></li>
                                     </ul>
                                 </div>
                                 <div class="dropdown-image">
@@ -622,7 +622,7 @@
                     </div>
                     <div class="badge-item">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <div><strong>24/7 Support</strong><span>Always here to help</span></div>
+                        <div><strong>Mon-Sat Support</strong><span>We reply same day</span></div>
                     </div>
                 </div>
             </div>
@@ -783,7 +783,7 @@
                     <div style="color:var(--dark-gray);line-height:1.9;font-size:0.95rem;">
                         <p style="margin-bottom:1rem;">Our <strong>dining table sets</strong> seat six comfortably — choose between a Turkish-style printed glass top or a luxury black and gold extendable design. Assembly is available on delivery day for a fixed fee, so you don't have to figure anything out yourself.</p>
                         <p style="margin-bottom:1rem;">Wardrobes come in sliding mirror and 3-door mirror styles, available in white, grey and black. Priced from €450 and customer self-assembly, they're a straightforward upgrade to any bedroom.</p>
-                        <p>Everything we sell ships from our warehouse on a structured weekly route — Monday through Saturday, by postcode. <strong>Cash on Delivery</strong> on every order. You inspect the furniture before you hand over a cent. That's how we've built trust with over 10,000 customers across five countries.</p>
+                        <p>Everything we sell ships from our warehouse on a structured weekly route — Monday through Saturday, by postcode. <strong>Cash on Delivery</strong> on every order. You inspect the furniture before you hand over a cent. That's how we deliver with confidence across Belgium, Netherlands, Luxembourg, France and Germany.</p>
                     </div>
                 </div>
                 <!-- Keyword tag cloud for internal linking -->
@@ -811,8 +811,12 @@
                 <div class="newsletter-content">
                     <h2>Join the Vantage Family</h2>
                     <p>Subscribe for exclusive offers, new arrivals, and interior inspiration.</p>
-                    <form class="newsletter-form" id="newsletterForm">
-                        <input type="email" placeholder="Enter your email address" required>
+                    <form class="newsletter-form" id="newsletterForm"
+                          action="https://formspree.io/f/xpqbybjd"
+                          method="POST">
+                        <input type="hidden" name="_subject" value="New Newsletter Subscriber – Vantage Home">
+                        <input type="hidden" name="form_type" value="newsletter_signup">
+                        <input type="email" name="email" placeholder="Enter your email address" required>
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
                 </div>
