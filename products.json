@@ -864,5 +864,402 @@
     "images": [
       "https://newlookhome.eu/cdn/shop/files/degsin1.png?v=1777060870"
     ]
+  },
+  {
+    "id": "sofa-3seater-minimalist-01",
+    "legacyId": 22,
+    "name": "Contemporary 3-Seater Sofa – Minimalist Design with Gold Accent Legs",
+    "category": "sofas",
+    "style": null,
+    "productType": "sofa",
+    "badge": "New",
+    "description": "Refined 3-seater sofa with clean minimalist lines and gold-finished accent legs. Premium upholstery built for everyday comfort and durability. Available in grey, black and beige.",
+    "basePrice": {
+      "standard": 430
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      },
+      {
+        "name": "Beige",
+        "hex": "#F5F0DC"
+      },
+      {
+        "name": "Blue",
+        "hex": "#2B4D8C"
+      }
+    ],
+    "features": [
+      "Seats 3 people comfortably",
+      "Gold-finished accent legs",
+      "Premium upholstery",
+      "Assembly: +€30"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "hasDrawers": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_3hkkrp3hkkrp3hkk.png?v=1777059258"
+    ],
+    "price": 430
+  },
+  {
+    "id": "sofa-convertible-velvet-01",
+    "legacyId": 23,
+    "name": "Modern 3-Seater Convertible Velvet Sofa Bed with Storage",
+    "category": "sofas",
+    "style": null,
+    "productType": "sofa",
+    "badge": "Space Saver",
+    "description": "Convertible velvet sofa bed with a foldable backrest and hidden storage compartment. Doubles as a guest bed – ideal for smaller Belgian apartments. Luxury space-saving design.",
+    "basePrice": {
+      "standard": 380
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      },
+      {
+        "name": "Beige",
+        "hex": "#F5F0DC"
+      },
+      {
+        "name": "Blue",
+        "hex": "#2B4D8C"
+      }
+    ],
+    "features": [
+      "Converts to a guest bed",
+      "Hidden storage under seat",
+      "Velvet upholstery",
+      "Foldable backrest"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": true,
+    "hasDrawers": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_3hkkrp3hkkrp3hkk.png?v=1777059258"
+    ],
+    "price": 380
+  },
+  {
+    "id": "sofa-greek-key-01",
+    "legacyId": 24,
+    "name": "Modern 3-Seater Sofa – Greek Key Detailing with Gold Accent Legs",
+    "category": "sofas",
+    "style": null,
+    "productType": "sofa",
+    "badge": null,
+    "description": "Premium 3-seater sofa featuring elegant Greek-key detailing and stylish gold accent legs. A statement piece that elevates any living room. Available in grey and black finishes.",
+    "basePrice": {
+      "standard": 380
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      }
+    ],
+    "features": [
+      "Greek-key decorative detailing",
+      "Gold accent legs",
+      "Seats 3 people",
+      "Premium upholstery"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "hasDrawers": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_3hkkrp3hkkrp3hkk.png?v=1777059258"
+    ],
+    "price": 380
+  },
+  {
+    "id": "bed-florida-01",
+    "legacyId": 25,
+    "name": "Luxury Florida Storage Bed – Premium Spring Base with Mattress",
+    "category": "beds",
+    "style": "florida-panel",
+    "productType": "bed-frame",
+    "badge": null,
+    "description": "The Florida storage bed combines a premium spring base with a high-quality mattress and a stylish upholstered headboard. Gas-lift storage keeps your bedroom clutter-free. Available in multiple velvet colours.",
+    "basePrice": {
+      "90x200": 500,
+      "140x200": 530,
+      "160x200": 560,
+      "180x200": 610
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      },
+      {
+        "name": "Cream / Beige",
+        "hex": "#F5F0DC"
+      },
+      {
+        "name": "Blue",
+        "hex": "#2B4D8C"
+      },
+      {
+        "name": "Green",
+        "hex": "#2D5016"
+      },
+      {
+        "name": "Pink",
+        "hex": "#E8A0B0"
+      }
+    ],
+    "features": [
+      "Pocket spring mattress included",
+      "Gas-lift storage base",
+      "Upholstered headboard",
+      "Assembly: +€40"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "hasDrawers": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_3hkkrp3hkkrp3hkk.png?v=1777059258"
+    ],
+    "price": 500
+  },
+  {
+    "id": "bed-panelline-01",
+    "legacyId": 26,
+    "name": "Luxury Panel-Line Velvet Storage Bed with Steel Legs & Mattress",
+    "category": "beds",
+    "style": "florida-panel",
+    "productType": "bed-frame",
+    "badge": null,
+    "description": "Contemporary panel-line bed with vertical channel velvet headboard and modern steel legs. Includes a mattress and gas-lift storage base. A sleek, architectural look for modern bedrooms.",
+    "basePrice": {
+      "90x200": 450,
+      "140x200": 485,
+      "160x200": 510,
+      "180x200": 570
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      },
+      {
+        "name": "Cream / Beige",
+        "hex": "#F5F0DC"
+      },
+      {
+        "name": "Blue",
+        "hex": "#2B4D8C"
+      },
+      {
+        "name": "Green",
+        "hex": "#2D5016"
+      },
+      {
+        "name": "Pink",
+        "hex": "#E8A0B0"
+      }
+    ],
+    "features": [
+      "Mattress included",
+      "Gas-lift storage base",
+      "Modern steel legs",
+      "Vertical channel headboard"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "hasDrawers": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_3hkkrp3hkkrp3hkk.png?v=1777059258"
+    ],
+    "price": 450
+  },
+  {
+    "id": "mattress-foam-luxury-01",
+    "legacyId": 27,
+    "name": "Luxury Foam Mattress – Quilted Comfort with Durable Support",
+    "category": "mattresses",
+    "style": null,
+    "productType": "mattress",
+    "badge": null,
+    "description": "Premium quilted foam mattress offering durable support and a plush comfort layer. Breathable design for a cool, restful night's sleep. Available in all standard Belgian sizes.",
+    "basePrice": {
+      "90x200": 250,
+      "140x200": 290,
+      "160x200": 320,
+      "180x200": 350
+    },
+    "colors": [
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "features": [
+      "Quilted comfort layer",
+      "Breathable foam",
+      "Durable support core",
+      "All standard sizes"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "hasDrawers": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_3hkkrp3hkkrp3hkk.png?v=1777059258"
+    ],
+    "price": 250
+  },
+  {
+    "id": "wardrobe-4door-01",
+    "legacyId": 28,
+    "name": "Four-Door Wardrobe with Double Mirrors & Large Storage",
+    "category": "wardrobes",
+    "style": null,
+    "productType": "wardrobe",
+    "badge": null,
+    "description": "Spacious four-door wardrobe with double mirrors, hanging rails, shelves and drawers. Ideal for larger bedrooms needing maximum storage. Available in white, grey and black.",
+    "basePrice": {
+      "standard": 450
+    },
+    "colors": [
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      }
+    ],
+    "features": [
+      "4 doors with double mirrors",
+      "Hanging rails + shelves",
+      "Built-in drawers",
+      "Assembly available"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "hasDrawers": true,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_3hkkrp3hkkrp3hkk.png?v=1777059258"
+    ],
+    "price": 450
+  },
+  {
+    "id": "wardrobe-2door-mirror-01",
+    "legacyId": 29,
+    "name": "Modern Two-Door Wardrobe with Mirror for Bedroom Storage",
+    "category": "wardrobes",
+    "style": null,
+    "productType": "wardrobe",
+    "badge": "Compact",
+    "description": "Compact two-door wardrobe with a full-length mirror, ideal for smaller bedrooms and apartments. Spacious interior with hanging rail and shelf. Available in white, grey and black.",
+    "basePrice": {
+      "standard": 260
+    },
+    "colors": [
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "Grey",
+        "hex": "#808080"
+      },
+      {
+        "name": "Black",
+        "hex": "#1a1a1a"
+      }
+    ],
+    "features": [
+      "2 doors with mirror",
+      "Hanging rail + shelf",
+      "Compact footprint",
+      "Assembly available"
+    ],
+    "deliveriesTo": [
+      "BE",
+      "NL",
+      "LU",
+      "FR",
+      "DE"
+    ],
+    "featured": false,
+    "hasDrawers": false,
+    "images": [
+      "https://newlookhome.eu/cdn/shop/files/Gemini_Generated_Image_3hkkrp3hkkrp3hkk.png?v=1777059258"
+    ],
+    "price": 260
   }
 ]
