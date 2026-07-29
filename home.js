@@ -609,7 +609,13 @@ function initProductDetail() {
         if (isBedOrMattress) {
             sizeSelect.innerHTML = availableSizes
                 .filter(s => product.basePrice[s] !== undefined)
-                .map(s => `<option value="${s}">${BED_SIZE_LABELS[s]} – €${product.basePrice[s]}</option>`)
+                .map(s => {
+                    const hasWas = product.wasPrice && product.wasPrice[s] !== undefined && product.wasPrice[s] > product.basePrice[s];
+                    const label = hasWas
+                        ? `${BED_SIZE_LABELS[s]} – €${product.basePrice[s]} (was €${product.wasPrice[s]})`
+                        : `${BED_SIZE_LABELS[s]} – €${product.basePrice[s]}`;
+                    return `<option value="${s}">${label}</option>`;
+                })
                 .join('');
             currentSizeKey = availableSizes.find(s => product.basePrice[s] !== undefined) || availableSizes[0];
         } else if (product.sizes) {
@@ -758,12 +764,24 @@ function initProductDetail() {
     function updateDetailPrice() {
         const sk = sizeSelect ? sizeSelect.value : currentSizeKey;
         let baseP = isBedOrMattress ? (product.basePrice[sk] || product.price) : (product.sizeValues?.[sk] || product.price);
+        const wasP = (isBedOrMattress && product.wasPrice && product.wasPrice[sk] !== undefined && product.wasPrice[sk] > baseP)
+            ? product.wasPrice[sk] : null;
         const drawers  = getDrawerSurcharge();
         const gas      = getGasliftSurcharge();
         const asm      = getAssemblySurcharge();
         const mattress = getMattressUplift();
         const total    = baseP + drawers + gas + asm + mattress;
         if (priceEl) priceEl.textContent = `€${total}`;
+        const originalEl = document.querySelector('.product-price .original');
+        if (originalEl) {
+            if (wasP) {
+                originalEl.textContent = `€${wasP}`;
+                originalEl.style.display = '';
+            } else {
+                originalEl.textContent = '';
+                originalEl.style.display = 'none';
+            }
+        }
         currentSizeKey = sk;
         // Price breakdown
         let breakdownEl = document.getElementById('priceBreakdown');
@@ -773,7 +791,9 @@ function initProductDetail() {
             breakdownEl.style.cssText = 'margin-top:.5rem;font-size:.82rem;color:var(--dark-gray);display:flex;flex-direction:column;gap:.2rem;';
             priceEl?.parentElement?.appendChild(breakdownEl);
         }
-        let rows = [`<span>Base price: €${baseP}</span>`];
+        let rows = [wasP
+            ? `<span>Base price: <s>€${wasP}</s> €${baseP}</span>`
+            : `<span>Base price: €${baseP}</span>`];
         if (mattress) rows.push(`<span>Mattress upgrade: +€${mattress}</span>`);
         if (drawers)  rows.push(`<span>Drawers: +€${drawers}</span>`);
         if (gas)      rows.push(`<span>Gas lift: +€${gas}</span>`);
@@ -788,6 +808,18 @@ function initProductDetail() {
     if (priceEl) {
         const initPrice = isBedOrMattress ? (product.basePrice[initSk] || product.price) : product.price;
         priceEl.textContent = `€${initPrice}`;
+        const initOriginalEl = document.querySelector('.product-price .original');
+        if (initOriginalEl) {
+            const initWasP = (isBedOrMattress && product.wasPrice && product.wasPrice[initSk] !== undefined && product.wasPrice[initSk] > initPrice)
+                ? product.wasPrice[initSk] : null;
+            if (initWasP) {
+                initOriginalEl.textContent = `€${initWasP}`;
+                initOriginalEl.style.display = '';
+            } else {
+                initOriginalEl.textContent = '';
+                initOriginalEl.style.display = 'none';
+            }
+        }
     }
 
     // Colour swatches removed — colours displayed via product photos added by admin
