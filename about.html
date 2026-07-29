@@ -52,6 +52,32 @@
     }
     </script>
 
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.vantagehome1.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.vantagehome1.com/about.html" }
+      ]
+    }
+    </script>
+
+    <!-- FAQPage Schema — trust-focused questions for a newer store -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Is Vantage Home a legitimate furniture store?","acceptedAnswer":{"@type":"Answer","text":"Yes. Vantage Home sells bed frames, sofas, mattresses, dining tables and wardrobes with Cash on Delivery across Belgium, Netherlands, Luxembourg, France and Germany. You inspect your order before paying, and our team is reachable directly via Facebook, Instagram or email."}},
+        {"@type":"Question","name":"Where does Vantage Home deliver?","acceptedAnswer":{"@type":"Answer","text":"We deliver across Belgium (free delivery), Netherlands, Luxembourg, northern France and western Germany, on structured Monday-to-Saturday routes."}},
+        {"@type":"Question","name":"How does Cash on Delivery work at Vantage Home?","acceptedAnswer":{"@type":"Answer","text":"You place your order online, and pay in cash only when it arrives at your door. You can inspect the furniture before handing over any payment — no upfront cost, no card details needed."}},
+        {"@type":"Question","name":"How can I contact Vantage Home before ordering?","acceptedAnswer":{"@type":"Answer","text":"You can reach us directly via Facebook, Instagram, or email at vantagehome1@gmail.com. We reply the same day, Monday to Saturday."}}
+      ]
+    }
+    </script>
+
     <style>
         /* ── Page-specific styles only ── */
         .about-hero {
@@ -569,7 +595,7 @@
                     <div class="tag-list">
                         <span class="tag">Memory foam</span>
                         <span class="tag">Pocket spring</span>
-                        <span class="tag">Pocket Spring</span>
+                        <span class="tag">Turkish pocket spring</span>
                         <span class="tag">140×200 / 160×200</span>
                     </div>
                 </div>
@@ -629,6 +655,31 @@
                 <div class="why-item">
                     <h4>Real customer support</h4>
                     <p>We're reachable via Facebook, Instagram and email before and after your order. No ticket queues — just a straightforward conversation with the people handling your delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section style="padding:3.5rem 0;background:var(--white);">
+        <div class="container" style="max-width:900px;">
+            <h2 class="section-title" style="margin-bottom:2rem;">Frequently Asked Questions</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 2.5rem;">
+                <div>
+                    <h3 style="font-size:.95rem;font-weight:600;color:var(--charcoal);margin-bottom:.35rem;">Is Vantage Home a legitimate furniture store?</h3>
+                    <p style="font-size:.87rem;color:var(--dark-gray);line-height:1.8;">Yes. We sell bed frames, sofas, mattresses, dining tables and wardrobes with Cash on Delivery across five countries. You inspect your order before paying, and our team is reachable directly via Facebook, Instagram or email.</p>
+                </div>
+                <div>
+                    <h3 style="font-size:.95rem;font-weight:600;color:var(--charcoal);margin-bottom:.35rem;">Where does Vantage Home deliver?</h3>
+                    <p style="font-size:.87rem;color:var(--dark-gray);line-height:1.8;">Belgium (free delivery), Netherlands, Luxembourg, northern France and western Germany, on structured Monday-to-Saturday delivery routes.</p>
+                </div>
+                <div>
+                    <h3 style="font-size:.95rem;font-weight:600;color:var(--charcoal);margin-bottom:.35rem;">How does Cash on Delivery work?</h3>
+                    <p style="font-size:.87rem;color:var(--dark-gray);line-height:1.8;">Order online, then pay in cash only when your furniture arrives. You inspect it first — no upfront cost, no card details needed.</p>
+                </div>
+                <div>
+                    <h3 style="font-size:.95rem;font-weight:600;color:var(--charcoal);margin-bottom:.35rem;">How can I contact Vantage Home before ordering?</h3>
+                    <p style="font-size:.87rem;color:var(--dark-gray);line-height:1.8;">Reach us via Facebook, Instagram, or email at vantagehome1@gmail.com. We reply the same day, Monday to Saturday.</p>
                 </div>
             </div>
         </div>
