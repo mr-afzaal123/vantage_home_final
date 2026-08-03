@@ -9,10 +9,10 @@
     "badge": "Bestseller",
     "description": "Clean, minimalist divan bed with a plain padded headboard. Available in multiple velvet colours with optional gaslift storage base. Mattress can be added separately.",
     "basePrice": {
-      "90x200": 355,
-      "140x200": 385,
-      "160x200": 399,
-      "180x200": 480
+      "90x200": 335,
+      "140x200": 365,
+      "160x200": 385,
+      "180x200": 460
     },
     "wasPrice": {
       "90x200": 385,
@@ -78,12 +78,19 @@
       "https://newlookhome.eu/cdn/shop/files/2fceae09-75e0-49ae-9e1a-2b9322680078.webp?v=1777027752",
       "https://newlookhome.eu/cdn/shop/files/4468f0c3-1401-4e1a-b011-a4ac7675aa49.webp?v=1777028334"
     ],
-    "price": 355,
+    "price": 335,
     "drawerOptions": [
       "No Drawers",
       "2 Drawers (+€60)",
       "4 Drawers (+€120)"
-    ]
+    ],
+    "onSale": true,
+    "originalPrice": {
+      "90x200": 385,
+      "140x200": 385,
+      "160x200": 400,
+      "180x200": 480
+    }
   },
   {
     "id": "bed-panel-01",
