@@ -460,11 +460,39 @@ function initProductDetail() {
         return;
     }
 
-    document.title = `${product.name} | Vantage Home`;
+    // SEO: keep title ≤60 chars and description ≤155 chars so Google
+    // doesn't truncate them mid-sentence in search results.
+    function truncateText(str, maxLen) {
+        if (!str) return '';
+        if (str.length <= maxLen) return str;
+        return str.slice(0, maxLen - 1).trimEnd() + '…';
+    }
+    function buildProductTitle(name, price) {
+        const brand = ' | Vantage Home';
+        const priceTag = ` – from €${price}`;
+        let title = name + priceTag + brand;
+        if (title.length <= 60) return title;
+        title = name + priceTag;
+        if (title.length <= 60) return title;
+        const maxNameLen = 60 - priceTag.length;
+        return truncateText(name, maxNameLen) + priceTag;
+    }
+    function buildProductDescription(name, desc, price) {
+        const tail = ' Free delivery in Belgium, Cash on Delivery.';
+        const lead = `${name} from €${price}. `;
+        const maxLen = 155;
+        if (lead.length + tail.length >= maxLen) {
+            return truncateText(name, maxLen - tail.length - 1) + '.' + tail;
+        }
+        const available = maxLen - lead.length - tail.length;
+        return lead + truncateText(desc, available) + tail;
+    }
+
+    document.title = buildProductTitle(product.name, product.price);
 
     // SEO: dynamic meta description
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', `${product.name} – from €${product.price}. ${product.description} Free delivery in Belgium. +€30 for NL, LU, FR & DE. Cash on Delivery.`);
+    if (metaDesc) metaDesc.setAttribute('content', buildProductDescription(product.name, product.description, product.price));
 
     // SEO: dynamic canonical
     const canonicalTag = document.getElementById('canonicalTag');
@@ -473,11 +501,11 @@ function initProductDetail() {
     // SEO: dynamic Open Graph + Twitter Card
     const productUrl = `https://www.vantagehome1.com/detail.html?id=${product.id}`;
     const productImg = product.images && product.images[0] ? product.images[0] : product.image;
-    const ogTitle = document.getElementById('ogTitle');       if (ogTitle)       ogTitle.setAttribute('content', `${product.name} | Vantage Home`);
+    const ogTitle = document.getElementById('ogTitle');       if (ogTitle)       ogTitle.setAttribute('content', buildProductTitle(product.name, product.price));
     const ogDesc  = document.getElementById('ogDescription'); if (ogDesc)        ogDesc.setAttribute('content', `From €${product.price}. ${product.description} Cash on Delivery across BE, NL, LU, FR & DE.`);
     const ogUrl   = document.getElementById('ogUrl');         if (ogUrl)         ogUrl.setAttribute('content', productUrl);
     const ogImg   = document.getElementById('ogImage');       if (ogImg)         ogImg.setAttribute('content', productImg);
-    const twTitle = document.getElementById('twTitle');       if (twTitle)       twTitle.setAttribute('content', `${product.name} | Vantage Home`);
+    const twTitle = document.getElementById('twTitle');       if (twTitle)       twTitle.setAttribute('content', buildProductTitle(product.name, product.price));
     const twDesc  = document.getElementById('twDescription'); if (twDesc)        twDesc.setAttribute('content', `From €${product.price}. ${product.description} Cash on Delivery.`);
     const twImg   = document.getElementById('twImage');       if (twImg)         twImg.setAttribute('content', productImg);
 
